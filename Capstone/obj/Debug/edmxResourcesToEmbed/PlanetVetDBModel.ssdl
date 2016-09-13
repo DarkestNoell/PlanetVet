@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlanetVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="OfficeHours">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="int" Nullable="false" />
+    <Property Name="DayName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DayStart" Type="time" Precision="7" Nullable="false" />
+    <Property Name="DayEnd" Type="time" Precision="7" Nullable="false" />
+    <Property Name="LunchStart" Type="time" Precision="7" />
+    <Property Name="LunchEnd" Type="time" Precision="7" />
+    <Property Name="TentativeWorkingDay" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PlanetVetModelStoreContainer">
+    <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

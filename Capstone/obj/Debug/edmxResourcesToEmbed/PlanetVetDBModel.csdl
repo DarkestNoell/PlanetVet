@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlanetVetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="OfficeHour">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="Int32" Nullable="false" />
+    <Property Name="DayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DayStart" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="DayEnd" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="LunchStart" Type="Time" Precision="7" />
+    <Property Name="LunchEnd" Type="Time" Precision="7" />
+    <Property Name="TentativeWorkingDay" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="OfficeHours" EntityType="Self.OfficeHour" />
+  </EntityContainer>
+</Schema>

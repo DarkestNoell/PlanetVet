@@ -1,0 +1,28 @@
+﻿<Controls:MetroWindow x:Class="Capstone.SelectWorkDaysWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Office Hours" Height="310.91" Width="665.493"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid HorizontalAlignment="Left" Height="281" VerticalAlignment="Top" Width="655">
+        <Label x:Name="label" Content="Please tell us, which days of the week do you schedule appointments on?" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SundayCheckBox" Content="Sunday" HorizontalAlignment="Left" Margin="23,59,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
+        <CheckBox x:Name="MondayCheckBox" Content="Monday" HorizontalAlignment="Left" Margin="22,82,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TuesdayCheckBox" Content="Tuesday" HorizontalAlignment="Left" Margin="22,105,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="WednesdayCheckBox" Content="Wednesday" HorizontalAlignment="Left" Margin="22,128,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="ThursdayCheckBox" Content="Thursday" HorizontalAlignment="Left" Margin="22,151,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="FridayCheckBox" Content="Friday" HorizontalAlignment="Left" Margin="23,174,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SaturdayCheckBox" Content="Saturday" HorizontalAlignment="Left" Margin="22,197,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Next" HorizontalAlignment="Left" Margin="286,238,0,0" VerticalAlignment="Top" Width="75" Click="NextButton_Click"/>
+        <CheckBox x:Name="MondayToFridayCheckBox" Content="Monday - Friday" HorizontalAlignment="Left" Margin="504,36,0,0" VerticalAlignment="Top" Checked="MF_Checked" Unchecked="MF_Unchecked"/>
+        <CheckBox x:Name="SaturdayToSundayCheckBox" Content="Saturday - Sunday" HorizontalAlignment="Left" Margin="504,59,0,0" VerticalAlignment="Top" Checked="SS_Checked" Unchecked="SS_Unchecked"/>
+        <Label x:Name="label1" Content="Quick Selection:" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="88" Margin="465,0,-7,0" VerticalAlignment="Top" Width="197"/>
+    </Grid>
+
+</Controls:MetroWindow>
+     
