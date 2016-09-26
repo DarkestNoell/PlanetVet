@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlanetVetModelStoreContainer" CdmEntityContainer="PlanetVetEntities">
+    <EntitySetMapping Name="OfficeHours">
+      <EntityTypeMapping TypeName="PlanetVetModel.OfficeHour">
+        <MappingFragment StoreEntitySet="OfficeHours">
+          <ScalarProperty Name="DayID" ColumnName="DayID" />
+          <ScalarProperty Name="DayName" ColumnName="DayName" />
+          <ScalarProperty Name="DayStart" ColumnName="DayStart" />
+          <ScalarProperty Name="DayEnd" ColumnName="DayEnd" />
+          <ScalarProperty Name="LunchStart" ColumnName="LunchStart" />
+          <ScalarProperty Name="LunchEnd" ColumnName="LunchEnd" />
+          <ScalarProperty Name="TentativeWorkingDay" ColumnName="TentativeWorkingDay" />
+          <ScalarProperty Name="TentativeLunchHours" ColumnName="TentativeLunchHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

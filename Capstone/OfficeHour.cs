@@ -16,10 +16,11 @@ namespace Capstone
     {
         public int DayID { get; set; }
         public string DayName { get; set; }
-        public System.TimeSpan DayStart { get; set; }
-        public System.TimeSpan DayEnd { get; set; }
-        public Nullable<System.TimeSpan> LunchStart { get; set; }
-        public Nullable<System.TimeSpan> LunchEnd { get; set; }
+        public System.DateTime DayStart { get; set; }
+        public System.DateTime DayEnd { get; set; }
+        public Nullable<System.DateTime> LunchStart { get; set; }
+        public Nullable<System.DateTime> LunchEnd { get; set; }
         public bool TentativeWorkingDay { get; set; }
+        public bool TentativeLunchHours { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+﻿<Controls:MetroWindow x:Class="Capstone.AppointmentDateSelectorWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Schedule Appointments" Height="303.572" Width="767.033"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid HorizontalAlignment="Left" Height="288" VerticalAlignment="Top" Width="757">
+        <Viewbox HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="757">
+            <DatePicker x:Name="AppointmentSelectDatePicker" Height="5" Width="182" />
+        </Viewbox>
+        <Viewbox HorizontalAlignment="Left" Height="71" Margin="50,199,0,0" VerticalAlignment="Top" Width="188">
+            <Button x:Name="BackToDashboardButton" Content="Dashboard" Width="75" Height="28" Click="button_Click"/>
+        </Viewbox>
+        <Viewbox HorizontalAlignment="Left" Height="71" Margin="516,199,0,0" VerticalAlignment="Top" Width="188">
+            <Button x:Name="ScheduleButton" Content="next" Width="75" Height="29"/>
+        </Viewbox>
+    </Grid>
+</Controls:MetroWindow>
+    

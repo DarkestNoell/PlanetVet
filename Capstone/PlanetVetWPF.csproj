@@ -94,70 +94,83 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Windows\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AppointmentScheduleWindow.xaml">
+    <Compile Include="Windows\AppointmentScheduleWindow.xaml.cs">
+      <DependentUpon>AppointmentScheduleWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\AppointmentDateSelectorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BusinessHoursWindow.xaml">
+    <Page Include="Windows\BusinessHoursWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Windows\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataModels\AppointmentHoursSetup.cs" />
-    <Compile Include="AppointmentScheduleWindow.xaml.cs">
-      <DependentUpon>AppointmentScheduleWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AppointmentDateSelectorWindow.xaml.cs">
+      <DependentUpon>AppointmentDateSelectorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BusinessHoursWindow.xaml.cs">
+    <Compile Include="Windows\BusinessHoursWindow.xaml.cs">
       <DependentUpon>BusinessHoursWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\OfficeDayModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SelectWorkDaysWindow.xaml">
+    <Page Include="Windows\PatientInformationSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlanetVetWindow.xaml">
+    <Page Include="Windows\SelectWorkDaysWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PlanetVetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AppointmentScheduleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HelperClasses\AppointmentHoursSetup.cs" />
     <Compile Include="OfficeHour.cs">
-      <DependentUpon>PlanetVetDBModel.tt</DependentUpon>
+      <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
-    <Compile Include="SelectWorkDaysWindow.xaml.cs">
+    <Compile Include="PlanetVet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetVet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetVet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientInformationSearch.xaml.cs">
+      <DependentUpon>PatientInformationSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectWorkDaysWindow.xaml.cs">
       <DependentUpon>SelectWorkDaysWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlanetVetDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVetDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVetDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVetDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVetDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVetDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVetWindow.xaml.cs">
+    <Compile Include="Windows\PlanetVetWindow.xaml.cs">
       <DependentUpon>PlanetVetWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -178,12 +191,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <EntityDeploy Include="PlanetVetDBModel.edmx">
+    <EntityDeploy Include="PlanetVet.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PlanetVetDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PlanetVet.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="PlanetVetDBModel.edmx.diagram">
-      <DependentUpon>PlanetVetDBModel.edmx</DependentUpon>
+    <None Include="PlanetVet.edmx.diagram">
+      <DependentUpon>PlanetVet.edmx</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,19 +210,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PlanetVetDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PlanetVetDBModel.edmx</DependentUpon>
-      <LastGenOutput>PlanetVetDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PlanetVetDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PlanetVetDBModel.edmx</DependentUpon>
-      <LastGenOutput>PlanetVetDBModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="PlanetVet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlanetVet.edmx</DependentUpon>
+      <LastGenOutput>PlanetVet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PlanetVet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlanetVet.edmx</DependentUpon>
+      <LastGenOutput>PlanetVet.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
