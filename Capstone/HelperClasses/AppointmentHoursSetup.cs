@@ -22,6 +22,7 @@ namespace Capstone
         public String[] WorkDaysArrayReturn()
         {
             return WorkDaysArray;
-        }   
+        }
+           
     }
 }

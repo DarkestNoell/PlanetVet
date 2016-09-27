@@ -34,7 +34,6 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\bin\Debug\ro\Xceed.Wp
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csprojResolveAssemblyReference.cache
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\App.baml
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\BusinessHoursWindow.baml
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\MainWindow.baml
@@ -47,6 +46,7 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWP
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.exe
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.pdb
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentDateSelectorWindow.g.cs
-C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentScheduleWindow.g.cs
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentDateSelectorWindow.baml
-C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentScheduleWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentSchedulingWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AppointmentSchedulingWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csprojResolveAssemblyReference.cache

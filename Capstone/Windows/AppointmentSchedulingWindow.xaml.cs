@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace Capstone.Windows
 { 
-    public partial class AppointmentScheduleWindow : MetroWindow
+    public partial class AppointmentSchedulingWindow : MetroWindow
     {
-        public AppointmentScheduleWindow()
+        public AppointmentSchedulingWindow()
         {
             InitializeComponent();
         }

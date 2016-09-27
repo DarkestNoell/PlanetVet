@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using Capstone.Windows;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,13 @@ namespace Capstone
         {
             PlanetVetWindow pvw = new PlanetVetWindow();
             pvw.Show();
+            this.Close();
+        }
+
+        private void ScheduleButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentSchedulingWindow asw = new AppointmentSchedulingWindow();
+            asw.Show();
             this.Close();
         }
     }

@@ -16,7 +16,7 @@
             <Button x:Name="BackToDashboardButton" Content="Dashboard" Width="75" Height="28" Click="button_Click"/>
         </Viewbox>
         <Viewbox HorizontalAlignment="Left" Height="71" Margin="516,199,0,0" VerticalAlignment="Top" Width="188">
-            <Button x:Name="ScheduleButton" Content="next" Width="75" Height="29"/>
+            <Button x:Name="ScheduleButton" Content="next" Width="75" Height="29" Click="ScheduleButton_Click"/>
         </Viewbox>
     </Grid>
 </Controls:MetroWindow>

@@ -37,9 +37,9 @@ namespace Capstone.Windows {
     
     
     /// <summary>
-    /// AppointmentScheduleWindow
+    /// AppointmentSchedulingWindow
     /// </summary>
-    public partial class AppointmentScheduleWindow : MahApps.Metro.Controls.MetroWindow, System.Windows.Markup.IComponentConnector {
+    public partial class AppointmentSchedulingWindow : MahApps.Metro.Controls.MetroWindow, System.Windows.Markup.IComponentConnector {
         
         private bool _contentLoaded;
         

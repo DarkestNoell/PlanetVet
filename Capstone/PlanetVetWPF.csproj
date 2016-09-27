@@ -98,8 +98,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Windows\AppointmentScheduleWindow.xaml.cs">
-      <DependentUpon>AppointmentScheduleWindow.xaml</DependentUpon>
+    <Compile Include="AllDate.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClasses\StartupQueries.cs" />
+    <Compile Include="OfficeHour.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetVet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetVet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetVet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanetVet.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AppointmentSchedulingWindow.xaml.cs">
+      <DependentUpon>AppointmentSchedulingWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\AppointmentDateSelectorWindow.xaml">
       <SubType>Designer</SubType>
@@ -139,31 +173,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AppointmentScheduleWindow.xaml">
+    <Page Include="Windows\AppointmentSchedulingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelperClasses\AppointmentHoursSetup.cs" />
-    <Compile Include="OfficeHour.cs">
-      <DependentUpon>PlanetVet.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVet.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVet.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVet.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVet.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PlanetVet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanetVet.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Windows\PatientInformationSearch.xaml.cs">
       <DependentUpon>PatientInformationSearch.xaml</DependentUpon>
     </Compile>

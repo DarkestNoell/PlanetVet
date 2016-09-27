@@ -1,5 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PlanetVetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AllDate">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayID" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="SlotTaken" Type="Boolean" Nullable="false" />
+    <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Patient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleInitial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ZIP" Type="Int32" />
+    <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNumber" Type="Int32" />
+    <Property Name="FirstPhoneNumAC" Type="Int32" />
+    <Property Name="FirstPhoneNum" Type="Int32" />
+    <Property Name="SecondPhoneNumAC" Type="Int32" />
+    <Property Name="SecondPhoneNum" Type="Int32" />
+    <Property Name="FirstPhoneNumType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SecondPhoneNumType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Folder" Type="Int32" />
+    <Property Name="Co_" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Codes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BalanceDue" Type="Double" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="7" />
+  </EntityType>
   <EntityType Name="OfficeHour">
     <Key>
       <PropertyRef Name="DayID" />
@@ -13,7 +62,48 @@
     <Property Name="TentativeWorkingDay" Type="Boolean" Nullable="false" />
     <Property Name="TentativeLunchHours" Type="Boolean" Nullable="false" />
   </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Breed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Species" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Birthday" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Codes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rabies" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Plan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="WeightType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Allergies" Type="Boolean" />
+    <Property Name="Reminded" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Deceased" Type="Boolean" />
+    <Property Name="Microchip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="DateOfService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PatientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+  </EntityType>
   <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AllDates" EntityType="Self.AllDate" />
+    <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="OfficeHours" EntityType="Self.OfficeHour" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
   </EntityContainer>
 </Schema>
