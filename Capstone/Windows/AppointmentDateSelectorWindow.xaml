@@ -9,8 +9,10 @@
         Title="Schedule Appointments" Height="303.572" Width="767.033"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid HorizontalAlignment="Left" Height="288" VerticalAlignment="Top" Width="757">
+        
         <Viewbox HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="757">
-            <DatePicker x:Name="AppointmentSelectDatePicker" Height="5" Width="182" />
+            <DatePicker x:Name="AppointmentSelectDatePicker" Height="5" Width="182" CalendarOpened="AppointmentSelectDatePicker_CalendarOpened">
+            </DatePicker>
         </Viewbox>
         <Viewbox HorizontalAlignment="Left" Height="71" Margin="50,199,0,0" VerticalAlignment="Top" Width="188">
             <Button x:Name="BackToDashboardButton" Content="Dashboard" Width="75" Height="28" Click="button_Click"/>

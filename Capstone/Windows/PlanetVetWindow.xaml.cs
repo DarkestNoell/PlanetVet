@@ -1,4 +1,4 @@
-﻿using Capstone.HelperClasses;
+﻿using Capstone.Windows;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -27,13 +27,7 @@ namespace Capstone
         private void button_Click(object sender, RoutedEventArgs e)
         {
             PlanetVetEntities pve = new PlanetVetEntities();
-
-            if(pve.AllDates.ToList().Count == 0 || !(pve.AllDates.OrderByDescending(p => p.Date).FirstOrDefault().Date.Year == 2100))
-            {
-                StartupQueries suq = new StartupQueries();
-                suq.StartAllDatesThread();
-            }
-
+         
             if (pve.OfficeHours.ToList().Count == 0)
             {
                 SelectWorkDaysWindow swdw = new SelectWorkDaysWindow();
@@ -42,9 +36,8 @@ namespace Capstone
             }
             else
             {
-
-                AppointmentDateSelectorWindow esw = new AppointmentDateSelectorWindow();
-                esw.Show();
+                AddMoveDeleteScheduleMenuWindow amdsmw = new AddMoveDeleteScheduleMenuWindow();
+                amdsmw.Show();
                 this.Close();
             }
        }

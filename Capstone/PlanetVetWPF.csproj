@@ -98,13 +98,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AllDate.cs">
-      <DependentUpon>PlanetVet.tt</DependentUpon>
-    </Compile>
     <Compile Include="Appointment.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentSlot.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="HelperClasses\StartupQueries.cs" />
@@ -132,14 +135,29 @@
     <Compile Include="Service.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml.cs">
+      <DependentUpon>AddMoveDeleteScheduleMenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AppointmentSchedulingWindow.xaml.cs">
       <DependentUpon>AppointmentSchedulingWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AppointmentDateSelectorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\BusinessHoursWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClientAppointmentHistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClientListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,14 +175,16 @@
     <Compile Include="Windows\BusinessHoursWindow.xaml.cs">
       <DependentUpon>BusinessHoursWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ClientAppointmentHistoryWindow.xaml.cs">
+      <DependentUpon>ClientAppointmentHistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClientListWindow.xaml.cs">
+      <DependentUpon>ClientListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\PatientInformationSearch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\SelectWorkDaysWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,9 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelperClasses\AppointmentHoursSetup.cs" />
-    <Compile Include="Windows\PatientInformationSearch.xaml.cs">
-      <DependentUpon>PatientInformationSearch.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\SelectWorkDaysWindow.xaml.cs">
       <DependentUpon>SelectWorkDaysWindow.xaml</DependentUpon>
     </Compile>

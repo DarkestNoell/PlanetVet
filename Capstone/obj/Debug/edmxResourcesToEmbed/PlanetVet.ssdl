@@ -1,32 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PlanetVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="AllDates">
-    <Key>
-      <PropertyRef Name="DayID" />
-    </Key>
-    <Property Name="DayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
-  </EntityType>
   <EntityType Name="Appointments">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DayID" Type="int" Nullable="false" />
-    <Property Name="Time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeEnd" Type="datetime2" Precision="7" />
     <Property Name="SlotTaken" Type="bit" Nullable="false" />
-    <Property Name="Client" Type="varchar(max)" />
+    <Property Name="Client" Type="varchar(max)" Nullable="false" />
     <Property Name="Patient" Type="varchar(max)" />
     <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ProcedureTime" Type="int" Nullable="false" />
+    <Property Name="DoctorID" Type="int" Nullable="false" />
+    <Property Name="Doctor" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentSlots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DayName" Type="varchar(max)" Nullable="false" />
+    <Property Name="TimeSlot" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeParsed" Type="varchar(max)" Nullable="false" />
+    <Property Name="AppointmentID" Type="int" />
   </EntityType>
   <EntityType Name="Clients">
     <Key>
       <PropertyRef Name="ClientId" />
     </Key>
     <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="varchar(max)" />
-    <Property Name="MiddleInitial" Type="varchar(max)" />
-    <Property Name="LastName" Type="varchar(max)" />
+    <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="MiddleInitial" Type="char" MaxLength="1" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
     <Property Name="Address" Type="varchar(max)" />
     <Property Name="State" Type="varchar" MaxLength="50" />
     <Property Name="City" Type="varchar(max)" />
@@ -48,6 +54,17 @@
     <Property Name="BalanceDue" Type="float" />
     <Property Name="Email" Type="varchar(max)" />
     <Property Name="DateAdded" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar(max)" />
+    <Property Name="LastName" Type="varchar(max)" />
+    <Property Name="Position" Type="varchar(max)" />
+    <Property Name="AccessLevel" Type="int" />
+    <Property Name="Added" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="OfficeHours">
     <Key>
@@ -99,9 +116,10 @@
     <Property Name="Amount" Type="float" />
   </EntityType>
   <EntityContainer Name="PlanetVetModelStoreContainer">
-    <EntitySet Name="AllDates" EntityType="Self.AllDates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />

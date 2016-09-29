@@ -7,11 +7,20 @@
         xmlns:local="clr-namespace:Capstone"
         mc:Ignorable="d"
         Title="Schedule Appointments" Height="516.239" Width="860.44"
-        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png"
+        Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Left" Height="484" VerticalAlignment="Top" Width="850">
-        <Label x:Name="label" Content="Selected Date takes over this label" HorizontalAlignment="Left" Margin="398,10,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="718*"/>
+            <ColumnDefinition Width="133*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="SelectedDateLabel" Content="Selected Date takes over this label" HorizontalAlignment="Left" Margin="398,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Viewing Appointments for:" HorizontalAlignment="Left" Margin="205,10,0,0" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="443" Margin="0,41,0,0" VerticalAlignment="Top" Width="850"/>
+        <DataGrid x:Name="AppointmentSlotsDataGrid" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Height="448" Width="850" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TimeSlot, StringFormat=\{0:HH:mm \}}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Controls:MetroWindow>
     

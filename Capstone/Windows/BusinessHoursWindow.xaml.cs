@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -337,15 +338,16 @@ namespace Capstone
 
                 if (CurrentDay == AppointmentDays.Length)
                 {
-                    MessageBox.Show("Thank you!");
+                    MessageBox.Show("Setup complete. Returning to dashboard.");
                     PlanetVetEntities pve = new PlanetVetEntities();
                     foreach (OfficeHour odm in OfficeHours)
                     {
                         pve.OfficeHours.Add(odm);
                     }
-
                     pve.SaveChanges();
 
+                    AddAllTimeSlots();
+                    
                     PlanetVetWindow pvw = new PlanetVetWindow();
                     pvw.Show();
                     this.Close();
@@ -357,7 +359,35 @@ namespace Capstone
             }
         }
 
+        public void AddAllTimeSlots()
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+            foreach (OfficeHour oh in pve.OfficeHours)
+            {
+                //Add timeslots per day
+                AddTimeSlotPerDay(oh);
+            }
+        }
 
+        private void AddTimeSlotPerDay(OfficeHour oh)
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+
+            DateTime DaySlot = oh.DayStart;
+            DateTime DayEnds = oh.DayEnd;
+
+            while (!(DaySlot > DayEnds))
+            {
+                pve.AppointmentSlots.Add(new AppointmentSlot()
+                {
+                    DayName = oh.DayName,
+                    TimeSlot = DaySlot,
+                    TimeParsed = DaySlot.ToString("hh:mm tt", CultureInfo.InvariantCulture)
+                });
+                DaySlot = DaySlot.AddMinutes(10);
+            }
+            pve.SaveChanges();
+        }
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {

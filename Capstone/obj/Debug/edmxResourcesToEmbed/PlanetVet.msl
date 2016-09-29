@@ -1,24 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PlanetVetModelStoreContainer" CdmEntityContainer="PlanetVetEntities">
-    <EntitySetMapping Name="AllDates">
-      <EntityTypeMapping TypeName="PlanetVetModel.AllDate">
-        <MappingFragment StoreEntitySet="AllDates">
-          <ScalarProperty Name="DayID" ColumnName="DayID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Appointments">
       <EntityTypeMapping TypeName="PlanetVetModel.Appointment">
         <MappingFragment StoreEntitySet="Appointments">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DayID" ColumnName="DayID" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
           <ScalarProperty Name="SlotTaken" ColumnName="SlotTaken" />
           <ScalarProperty Name="Client" ColumnName="Client" />
           <ScalarProperty Name="Patient" ColumnName="Patient" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProcedureTime" ColumnName="ProcedureTime" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentSlots">
+      <EntityTypeMapping TypeName="PlanetVetModel.AppointmentSlot">
+        <MappingFragment StoreEntitySet="AppointmentSlots">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DayName" ColumnName="DayName" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="TimeParsed" ColumnName="TimeParsed" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -50,6 +56,18 @@
           <ScalarProperty Name="BalanceDue" ColumnName="BalanceDue" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="PlanetVetModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+          <ScalarProperty Name="Added" ColumnName="Added" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

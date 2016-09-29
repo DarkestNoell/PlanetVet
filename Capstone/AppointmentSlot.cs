@@ -12,17 +12,11 @@ namespace Capstone
     using System;
     using System.Collections.Generic;
     
-    public partial class Appointment
+    public partial class AppointmentSlot
     {
         public int Id { get; set; }
-        public System.DateTime TimeStart { get; set; }
-        public Nullable<System.DateTime> TimeEnd { get; set; }
-        public bool SlotTaken { get; set; }
-        public string Client { get; set; }
-        public string Patient { get; set; }
-        public string Description { get; set; }
-        public int ProcedureTime { get; set; }
-        public int DoctorID { get; set; }
-        public string Doctor { get; set; }
+        public string DayName { get; set; }
+        public System.DateTime TimeSlot { get; set; }
+        public string TimeParsed { get; set; }
     }
 }

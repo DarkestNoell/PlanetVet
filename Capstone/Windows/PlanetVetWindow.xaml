@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Planet Vet Dashboard" Height="500" Width="800"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
-    <Button x:Name="button" Content="Appointments&#xD;&#xA;" HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="button_Click"/>
+    <Button x:Name="button" Content="Appointments&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Click="button_Click"/>
 
     <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces 
 

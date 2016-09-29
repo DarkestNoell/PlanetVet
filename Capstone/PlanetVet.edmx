@@ -5,33 +5,38 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="PlanetVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AllDates">
-          <Key>
-            <PropertyRef Name="DayID" />
-          </Key>
-          <Property Name="DayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
-        </EntityType>
         <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DayID" Type="int" Nullable="false" />
-          <Property Name="Time" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TimeEnd" Type="datetime2" Precision="7" />
           <Property Name="SlotTaken" Type="bit" Nullable="false" />
-          <Property Name="Client" Type="varchar(max)" />
+          <Property Name="Client" Type="varchar(max)" Nullable="false" />
           <Property Name="Patient" Type="varchar(max)" />
           <Property Name="Description" Type="varchar(max)" />
+          <Property Name="ProcedureTime" Type="int" Nullable="false" />
+          <Property Name="DoctorID" Type="int" Nullable="false" />
+          <Property Name="Doctor" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppointmentSlots">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DayName" Type="varchar(max)" Nullable="false" />
+          <Property Name="TimeSlot" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TimeParsed" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="ClientId" />
           </Key>
           <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar(max)" />
-          <Property Name="MiddleInitial" Type="varchar(max)" />
-          <Property Name="LastName" Type="varchar(max)" />
+          <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+          <Property Name="MiddleInitial" Type="char" MaxLength="1" />
+          <Property Name="LastName" Type="varchar(max)" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="State" Type="varchar" MaxLength="50" />
           <Property Name="City" Type="varchar(max)" />
@@ -53,6 +58,17 @@
           <Property Name="BalanceDue" Type="float" />
           <Property Name="Email" Type="varchar(max)" />
           <Property Name="DateAdded" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar(max)" />
+          <Property Name="LastName" Type="varchar(max)" />
+          <Property Name="Position" Type="varchar(max)" />
+          <Property Name="AccessLevel" Type="int" />
+          <Property Name="Added" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="OfficeHours">
           <Key>
@@ -104,9 +120,10 @@
           <Property Name="Amount" Type="float" />
         </EntityType>
         <EntityContainer Name="PlanetVetModelStoreContainer">
-          <EntitySet Name="AllDates" EntityType="Self.AllDates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
@@ -116,33 +133,38 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlanetVetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AllDate">
-          <Key>
-            <PropertyRef Name="DayID" />
-          </Key>
-          <Property Name="DayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
-        </EntityType>
         <EntityType Name="Appointment">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DayID" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TimeStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TimeEnd" Type="DateTime" Precision="7" />
           <Property Name="SlotTaken" Type="Boolean" Nullable="false" />
-          <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Patient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProcedureTime" Type="Int32" Nullable="false" />
+          <Property Name="DoctorID" Type="Int32" Nullable="false" />
+          <Property Name="Doctor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppointmentSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeSlot" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TimeParsed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ClientId" />
           </Key>
           <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MiddleInitial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -164,6 +186,17 @@
           <Property Name="BalanceDue" Type="Double" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DateAdded" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AccessLevel" Type="Int32" />
+          <Property Name="Added" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="OfficeHour">
           <Key>
@@ -215,9 +248,10 @@
           <Property Name="Amount" Type="Double" />
         </EntityType>
         <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AllDates" EntityType="Self.AllDate" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlot" />
           <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="OfficeHours" EntityType="Self.OfficeHour" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Services" EntityType="Self.Service" />
@@ -228,24 +262,29 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PlanetVetModelStoreContainer" CdmEntityContainer="PlanetVetEntities">
-          <EntitySetMapping Name="AllDates">
-            <EntityTypeMapping TypeName="PlanetVetModel.AllDate">
-              <MappingFragment StoreEntitySet="AllDates">
-                <ScalarProperty Name="DayID" ColumnName="DayID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Appointments">
             <EntityTypeMapping TypeName="PlanetVetModel.Appointment">
               <MappingFragment StoreEntitySet="Appointments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DayID" ColumnName="DayID" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
                 <ScalarProperty Name="SlotTaken" ColumnName="SlotTaken" />
                 <ScalarProperty Name="Client" ColumnName="Client" />
                 <ScalarProperty Name="Patient" ColumnName="Patient" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProcedureTime" ColumnName="ProcedureTime" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppointmentSlots">
+            <EntityTypeMapping TypeName="PlanetVetModel.AppointmentSlot">
+              <MappingFragment StoreEntitySet="AppointmentSlots">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DayName" ColumnName="DayName" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="TimeParsed" ColumnName="TimeParsed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -277,6 +316,18 @@
                 <ScalarProperty Name="BalanceDue" ColumnName="BalanceDue" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PlanetVetModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="Added" ColumnName="Added" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

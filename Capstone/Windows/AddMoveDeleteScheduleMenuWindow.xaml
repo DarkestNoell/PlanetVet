@@ -1,0 +1,25 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.AddMoveDeleteScheduleMenuWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Appointment Menu" Height="266.213" Width="356.824"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid Margin="0,0,-8,0">
+        <Button x:Name="NewButton" Content="NEW&#xD;&#xA;   +" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="198" FontFamily="Arial" FontSize="24" Background="#FF15B89A" Click="NewButton_Click" Margin="0,44,0,-4"/>
+        <Button x:Name="MoveButton" Content="MOVE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="198" Margin="112,44,0,-4" FontSize="24" Background="#FF8B4098" Click="MoveButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel&#xD;&#xA;      -" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="198" Margin="237,44,0,-4" FontSize="24" Background="#FF15B89A"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="13" Margin="107,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <ComboBox x:Name="SearchComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="0,13,0,0" Height="26">
+            <ComboBoxItem Content="First Name" HorizontalAlignment="Left" Width="86"/>
+            <ComboBoxItem Content="Last Name" HorizontalAlignment="Left" Width="86"/>
+            <ComboBoxItem Content="Full Name" HorizontalAlignment="Left" Width="105"/>
+        </ComboBox>
+        <Button x:Name="SearchButton" Content="search" HorizontalAlignment="Left" Margin="293,13,0,0" VerticalAlignment="Top" Width="54" Height="26" Click="SearchButton_Click"/>
+        <Label x:Name="label" Content="Search for a recurring client's appointments' by:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="-1,-8,0,0"/>
+
+    </Grid>
+</Controls:MetroWindow>

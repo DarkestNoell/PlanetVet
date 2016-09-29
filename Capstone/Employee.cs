@@ -12,9 +12,13 @@ namespace Capstone
     using System;
     using System.Collections.Generic;
     
-    public partial class AllDate
+    public partial class Employee
     {
-        public int DayID { get; set; }
-        public System.DateTime Date { get; set; }
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Position { get; set; }
+        public Nullable<int> AccessLevel { get; set; }
+        public Nullable<System.DateTime> Added { get; set; }
     }
 }
