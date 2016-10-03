@@ -15,6 +15,7 @@ namespace Capstone
     public partial class Patient
     {
         public int PatientID { get; set; }
+        public Nullable<int> ClientID { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
         public Nullable<int> Age { get; set; }

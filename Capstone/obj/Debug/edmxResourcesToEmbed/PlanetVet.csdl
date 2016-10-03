@@ -97,6 +97,7 @@
       <PropertyRef Name="PatientID" />
     </Key>
     <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="Age" Type="Int32" />
@@ -135,12 +136,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="SpeciesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Appointments" EntityType="Self.Appointment" />
     <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlot" />
@@ -152,6 +147,5 @@
     <EntitySet Name="Patients" EntityType="Self.Patient" />
     <EntitySet Name="Services" EntityType="Self.Service" />
     <EntitySet Name="Species" EntityType="Self.Species" />
-    <EntitySet Name="Tables" EntityType="Self.Table" />
   </EntityContainer>
 </Schema>

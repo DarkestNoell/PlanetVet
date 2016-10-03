@@ -56,3 +56,4 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\Cli
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csprojResolveAssemblyReference.cache
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddAppointmentWindow.g.cs
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddAppointmentWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\bin\Debug\WPFTextBoxAutoComplete.dll

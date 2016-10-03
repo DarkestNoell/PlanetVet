@@ -97,6 +97,7 @@
       <PropertyRef Name="PatientID" />
     </Key>
     <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
     <Property Name="Name" Type="varchar(max)" Nullable="false" />
     <Property Name="Sex" Type="char" MaxLength="10" />
     <Property Name="Age" Type="int" />
@@ -135,12 +136,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SpeciesName" Type="varchar(max)" />
   </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="PlanetVetModelStoreContainer">
     <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
@@ -152,6 +147,5 @@
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

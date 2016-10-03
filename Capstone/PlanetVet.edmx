@@ -102,6 +102,7 @@
             <PropertyRef Name="PatientID" />
           </Key>
           <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="int" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Sex" Type="char" MaxLength="10" />
           <Property Name="Age" Type="int" />
@@ -140,12 +141,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SpeciesName" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="PlanetVetModelStoreContainer">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
@@ -157,7 +152,6 @@
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -261,6 +255,7 @@
             <PropertyRef Name="PatientID" />
           </Key>
           <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="Age" Type="Int32" />
@@ -299,12 +294,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SpeciesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlot" />
@@ -316,7 +305,6 @@
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Services" EntityType="Self.Service" />
           <EntitySet Name="Species" EntityType="Self.Species" />
-          <EntitySet Name="Tables" EntityType="Self.Table" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -427,6 +415,7 @@
             <EntityTypeMapping TypeName="PlanetVetModel.Patient">
               <MappingFragment StoreEntitySet="Patients">
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
@@ -466,13 +455,6 @@
               <MappingFragment StoreEntitySet="Species">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tables">
-            <EntityTypeMapping TypeName="PlanetVetModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

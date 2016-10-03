@@ -35,6 +35,5 @@ namespace Capstone
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Species> Species { get; set; }
-        public virtual DbSet<Table> Tables { get; set; }
     }
 }
