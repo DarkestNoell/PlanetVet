@@ -54,3 +54,5 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.pd
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\ClientAppointmentHistoryWindow.g.cs
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\ClientAppointmentHistoryWindow.baml
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csprojResolveAssemblyReference.cache
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddAppointmentWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddAppointmentWindow.baml

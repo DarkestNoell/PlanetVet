@@ -16,10 +16,15 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="SelectedDateLabel" Content="Selected Date takes over this label" HorizontalAlignment="Left" Margin="398,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Viewing Appointments for:" HorizontalAlignment="Left" Margin="205,10,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="AppointmentSlotsDataGrid" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Height="448" Width="850" Grid.ColumnSpan="2">
+        <DataGrid x:Name="AppointmentSlotsDataGrid" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Height="448" Width="850" Grid.ColumnSpan="2" SelectionChanged="AppointmentSlotsDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding TimeSlot, StringFormat=\{0:HH:mm \}}" />
             </DataGrid.Columns>
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick"  Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
         </DataGrid>
     </Grid>
 </Controls:MetroWindow>

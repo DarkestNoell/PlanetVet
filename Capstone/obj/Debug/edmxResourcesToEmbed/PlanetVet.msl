@@ -7,7 +7,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
           <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
-          <ScalarProperty Name="SlotTaken" ColumnName="SlotTaken" />
           <ScalarProperty Name="Client" ColumnName="Client" />
           <ScalarProperty Name="Patient" ColumnName="Patient" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -24,7 +23,15 @@
           <ScalarProperty Name="DayName" ColumnName="DayName" />
           <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
           <ScalarProperty Name="TimeParsed" ColumnName="TimeParsed" />
-          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Breeds">
+      <EntityTypeMapping TypeName="PlanetVetModel.Breed">
+        <MappingFragment StoreEntitySet="Breeds">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="BreedName" ColumnName="BreedName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,7 +74,15 @@
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
-          <ScalarProperty Name="Added" ColumnName="Added" />
+          <ScalarProperty Name="IsDoctor" ColumnName="IsDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamRooms">
+      <EntityTypeMapping TypeName="PlanetVetModel.ExamRoom">
+        <MappingFragment StoreEntitySet="ExamRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExamRoomNumber" ColumnName="ExamRoomNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -120,6 +135,21 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Species">
+      <EntityTypeMapping TypeName="PlanetVetModel.Species">
+        <MappingFragment StoreEntitySet="Species">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="PlanetVetModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

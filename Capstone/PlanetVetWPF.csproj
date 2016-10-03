@@ -104,10 +104,16 @@
     <Compile Include="AppointmentSlot.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Breed.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExamRoom.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="HelperClasses\StartupQueries.cs" />
@@ -135,12 +141,25 @@
     <Compile Include="Service.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Species.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddAppointmentWindow.xaml.cs">
+      <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml.cs">
       <DependentUpon>AddMoveDeleteScheduleMenuWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AppointmentSchedulingWindow.xaml.cs">
       <DependentUpon>AppointmentSchedulingWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

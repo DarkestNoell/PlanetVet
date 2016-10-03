@@ -12,7 +12,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="TimeEnd" Type="datetime2" Precision="7" />
-          <Property Name="SlotTaken" Type="bit" Nullable="false" />
           <Property Name="Client" Type="varchar(max)" Nullable="false" />
           <Property Name="Patient" Type="varchar(max)" />
           <Property Name="Description" Type="varchar(max)" />
@@ -28,6 +27,14 @@
           <Property Name="DayName" Type="varchar(max)" Nullable="false" />
           <Property Name="TimeSlot" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="TimeParsed" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Breeds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpeciesName" Type="varchar(max)" />
+          <Property Name="BreedName" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -64,11 +71,18 @@
             <PropertyRef Name="EmployeeId" />
           </Key>
           <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar(max)" />
-          <Property Name="LastName" Type="varchar(max)" />
-          <Property Name="Position" Type="varchar(max)" />
+          <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Position" Type="varchar(max)" Nullable="false" />
           <Property Name="AccessLevel" Type="int" />
-          <Property Name="Added" Type="datetime2" Precision="7" />
+          <Property Name="IsDoctor" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExamRooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExamRoomNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OfficeHours">
           <Key>
@@ -119,14 +133,31 @@
           <Property Name="Qty" Type="int" />
           <Property Name="Amount" Type="float" />
         </EntityType>
+        <EntityType Name="Species">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpeciesName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="PlanetVetModelStoreContainer">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Breeds" EntityType="Self.Breeds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamRooms" EntityType="Self.ExamRooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -140,7 +171,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TimeStart" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="TimeEnd" Type="DateTime" Precision="7" />
-          <Property Name="SlotTaken" Type="Boolean" Nullable="false" />
           <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Patient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -156,6 +186,14 @@
           <Property Name="DayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TimeSlot" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="TimeParsed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Breed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpeciesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BreedName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -192,11 +230,18 @@
             <PropertyRef Name="EmployeeId" />
           </Key>
           <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AccessLevel" Type="Int32" />
-          <Property Name="Added" Type="DateTime" Precision="7" />
+          <Property Name="IsDoctor" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExamRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamRoomNumber" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="OfficeHour">
           <Key>
@@ -247,14 +292,31 @@
           <Property Name="Qty" Type="Int32" />
           <Property Name="Amount" Type="Double" />
         </EntityType>
+        <EntityType Name="Species">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpeciesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlot" />
+          <EntitySet Name="Breeds" EntityType="Self.Breed" />
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="ExamRooms" EntityType="Self.ExamRoom" />
           <EntitySet Name="OfficeHours" EntityType="Self.OfficeHour" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="Species" EntityType="Self.Species" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -268,7 +330,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
                 <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
-                <ScalarProperty Name="SlotTaken" ColumnName="SlotTaken" />
                 <ScalarProperty Name="Client" ColumnName="Client" />
                 <ScalarProperty Name="Patient" ColumnName="Patient" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -285,6 +346,15 @@
                 <ScalarProperty Name="DayName" ColumnName="DayName" />
                 <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
                 <ScalarProperty Name="TimeParsed" ColumnName="TimeParsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Breeds">
+            <EntityTypeMapping TypeName="PlanetVetModel.Breed">
+              <MappingFragment StoreEntitySet="Breeds">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+                <ScalarProperty Name="BreedName" ColumnName="BreedName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -327,7 +397,15 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
-                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="IsDoctor" ColumnName="IsDoctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamRooms">
+            <EntityTypeMapping TypeName="PlanetVetModel.ExamRoom">
+              <MappingFragment StoreEntitySet="ExamRooms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ExamRoomNumber" ColumnName="ExamRoomNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -380,6 +458,21 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Species">
+            <EntityTypeMapping TypeName="PlanetVetModel.Species">
+              <MappingFragment StoreEntitySet="Species">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="PlanetVetModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

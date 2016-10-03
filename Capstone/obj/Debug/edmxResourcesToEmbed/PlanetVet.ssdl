@@ -7,7 +7,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="TimeEnd" Type="datetime2" Precision="7" />
-    <Property Name="SlotTaken" Type="bit" Nullable="false" />
     <Property Name="Client" Type="varchar(max)" Nullable="false" />
     <Property Name="Patient" Type="varchar(max)" />
     <Property Name="Description" Type="varchar(max)" />
@@ -23,7 +22,14 @@
     <Property Name="DayName" Type="varchar(max)" Nullable="false" />
     <Property Name="TimeSlot" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="TimeParsed" Type="varchar(max)" Nullable="false" />
-    <Property Name="AppointmentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Breeds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesName" Type="varchar(max)" />
+    <Property Name="BreedName" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Clients">
     <Key>
@@ -60,11 +66,18 @@
       <PropertyRef Name="EmployeeId" />
     </Key>
     <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="varchar(max)" />
-    <Property Name="LastName" Type="varchar(max)" />
-    <Property Name="Position" Type="varchar(max)" />
+    <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Position" Type="varchar(max)" Nullable="false" />
     <Property Name="AccessLevel" Type="int" />
-    <Property Name="Added" Type="datetime2" Precision="7" />
+    <Property Name="IsDoctor" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExamRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamRoomNumber" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="OfficeHours">
     <Key>
@@ -115,13 +128,30 @@
     <Property Name="Qty" Type="int" />
     <Property Name="Amount" Type="float" />
   </EntityType>
+  <EntityType Name="Species">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="PlanetVetModelStoreContainer">
     <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Breeds" EntityType="Self.Breeds" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamRooms" EntityType="Self.ExamRooms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

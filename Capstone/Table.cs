@@ -12,13 +12,8 @@ namespace Capstone
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Table
     {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-        public Nullable<int> AccessLevel { get; set; }
-        public bool IsDoctor { get; set; }
+        public int Id { get; set; }
     }
 }
