@@ -7,9 +7,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Capstone"
         mc:Ignorable="d"
-        Title="Appointment Menu" Height="389.213" Width="668.824"
-        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png"
-        Loaded="Window_Loaded">
+        Title="Appointment Menu" Height="409.213" Width="668.824"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid>
         <ComboBox x:Name="DoctorComboBox" HorizontalAlignment="Left" Margin="63,41,0,0" VerticalAlignment="Top" Width="200"/>
         <Label x:Name="label" Content="Dr." HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
@@ -29,7 +28,7 @@
         <ComboBox x:Name="BreedComboBox" HorizontalAlignment="Left" Margin="365,246,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label7" Content="Breed" HorizontalAlignment="Left" Margin="315,246,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label8" Content="Weight" HorizontalAlignment="Left" Margin="315,278,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="schedule" HorizontalAlignment="Left" Margin="0,334,-6,0" VerticalAlignment="Top" Width="667" Background="#FF0DE45B"/>
+        <Button x:Name="ScheduleButton" Content="schedule" HorizontalAlignment="Left" Margin="0,355,-6,0" VerticalAlignment="Top" Width="667" Background="#FF0DE45B" Click="ScheduleButton_Click"/>
         <Label x:Name="label9" Content="Scheduling new appointment for:" HorizontalAlignment="Left" Margin="139,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="DateTimeDisplayLabel" Content="DisplayDateTimeHere" HorizontalAlignment="Left" Margin="360,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ExamRoomComboBox" HorizontalAlignment="Left" Margin="365,41,0,0" VerticalAlignment="Top" Width="195"/>
@@ -41,9 +40,11 @@
         <Label x:Name="label11" Content="Name" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="RecommendedSearchListBox" HorizontalAlignment="Left" Height="85" Margin="63,126,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="RecommendedSearchListBox_SelectionChanged"/>
         <Button x:Name="button1" Content="search&#xD;&#xA;" HorizontalAlignment="Left" Margin="503,101,0,0" VerticalAlignment="Top" Width="57" Height="28" Click="button1_Click"/>
-        <Label x:Name="label12" Content="Last Name" HorizontalAlignment="Left" Margin="108,72,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ClientFirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="283,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label x:Name="label12_Copy" Content="First Name" HorizontalAlignment="Left" Margin="360,77,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label12" Content="Last Name" HorizontalAlignment="Left" Margin="63,72,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ClientFirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="285,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="label12_Copy" Content="First Name" HorizontalAlignment="Left" Margin="283,72,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="WeightTextBox" HorizontalAlignment="Left" Height="8" Margin="363,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.945,0.538"/>
+        <TextBox x:Name="NotesTextBox" HorizontalAlignment="Left" Height="41" Margin="363,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+        <Label x:Name="label15" Content="Notes:" HorizontalAlignment="Left" Margin="314,312,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Controls:MetroWindow>

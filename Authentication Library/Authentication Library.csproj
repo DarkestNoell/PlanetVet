@@ -40,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnonymousIdentity.cs" />
+    <Compile Include="AuthenticationService.cs" />
+    <Compile Include="AuthenticationViewModel.cs" />
+    <Compile Include="CustomIdentity.cs" />
+    <Compile Include="CustomPrincipal.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

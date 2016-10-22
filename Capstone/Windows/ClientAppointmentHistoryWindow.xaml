@@ -6,12 +6,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Capstone"
         mc:Ignorable="d"
-        Title="Client Appointment History" Height="670.209" Width="756.011"
+        Title="Client Appointments" Height="670.209" Width="756.011"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png"
         Loaded="Window_Loaded">
     <Grid Margin="0,0,268,204">
-        <DataGrid x:Name="ClientDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="606" Width="738" Margin="10,32,-268,-202">
+        <DataGrid x:Name="ClientDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="606" Width="738" Margin="10,37,-268,-207">
         </DataGrid>
         <Button x:Name="button" Content="DASHBOARD" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="673,7,-268,0" VerticalAlignment="Top" Width="75" Click="DeleteButton_Click"/>
     </Grid>
 </Controls:MetroWindow>

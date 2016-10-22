@@ -17,41 +17,64 @@ namespace Capstone.Windows
 { 
     public partial class AppointmentSchedulingWindow : MetroWindow
     {
-        public DateTime SelectedDate { get; set; }
+        public static DateTime SelectedDate { get; set; }
+        public static int MinutesForAppointment { get; set; }
         public AppointmentSchedulingWindow()
         {
             InitializeComponent();
+            WorkOnWindow();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void WorkOnWindow()
         {
-            SelectedDateLabel.Content = SelectedDate;
+            //List<DateTime> AvailableAppointmentTimes = new List<DateTime>();
+            //OfficeHour StartOfDay = pve.OfficeHours.Where(day => day.DayName.Equals(SelectedDate.DayOfWeek)).FirstOrDefault();
+            //MessageBox.Show(StartOfDay.DayStart.ToShortTimeString());
+            //MessageBox.Show("sdjklfjlsjflks");
+
+            //SelectedDate Starts at 12A.M.
+            //PlanetVetEntities pve = new PlanetVetEntities();
             PlanetVetEntities pve = new PlanetVetEntities();
+            OfficeHour Day = pve.OfficeHours.Where(day => day.DayName.Equals(SelectedDate.DayOfWeek.ToString())).FirstOrDefault();
+            ////Start of given work day
+            DateTime AppointmentStart = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Day, Day.DayStart.Hour, Day.DayStart.Minute, 0);
+            DateTime AppointmentEnd = AppointmentStart.AddMinutes(MinutesForAppointment);
+            SelectedDateLabel.Content = SelectedDate.ToShortDateString();
+            //SelectedDate.ToShortDateString();
 
-            //All appointment slots on selected date
-            var Slots = pve.AppointmentSlots.Where(dayToFind => dayToFind.DayName.Contains(SelectedDate.DayOfWeek.ToString())).ToList();
+            List<Appointment> AppointmentsForThisDay = pve.Appointments.Where(app => app.TimeStart.Year == SelectedDate.Year &&
+                                                                              app.TimeStart.Month == SelectedDate.Month &&
+                                                                              app.TimeStart.Day == SelectedDate.Day).ToList();
 
-            //Appointments on selected date
-            var AppointmentsForThisDay = pve.Appointments.Where(appt => appt.TimeStart.Year == SelectedDate.Year && appt.TimeStart.Month == SelectedDate.Month && appt.TimeStart.Month == SelectedDate.Day);
+            DateTime StartOfDay = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Date.Day, Day.DayStart.Hour, Day.DayStart.Minute, 0);
+            DateTime EndOfDay = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Date.Day, Day.DayEnd.Hour, Day.DayEnd.Minute, 0);
+            //SelectedDateLabel.Content = SelectedDate.ToShortDateString();
 
-            foreach (AppointmentSlot AS in Slots)
+            List<DateTime> AvailableAppointmentTimes = new List<DateTime>();
+            Boolean CanAdd = true;
+
+            while ((AppointmentEnd <= EndOfDay))
             {
+                CanAdd = true;
                 foreach (Appointment a in AppointmentsForThisDay)
                 {
-                    if(a.TimeStart.Hour == AS.TimeSlot.Hour && a.TimeStart.Minute == AS.TimeSlot.Minute)
+                    if (a.TimeStart <= AppointmentStart && a.TimeEnd >= AppointmentEnd)
                     {
-                        Slots.Remove(AS);
+                        CanAdd = false;
                     }
                 }
-            }
 
-            AppointmentSlotsDataGrid.ItemsSource = Slots;
-            AppointmentSlotsDataGrid.Columns.Remove(AppointmentSlotsDataGrid.Columns[0]);
-            AppointmentSlotsDataGrid.Columns.Remove(AppointmentSlotsDataGrid.Columns[0]);
-            AppointmentSlotsDataGrid.Columns.Remove(AppointmentSlotsDataGrid.Columns[0]);
-            AppointmentSlotsDataGrid.Columns.Remove(AppointmentSlotsDataGrid.Columns[0]);
-            AppointmentSlotsDataGrid.IsReadOnly = true;
+                if (CanAdd)
+                {
+                    AvailableAppointmentTimes.Add(AppointmentStart);
+                }
+
+                AppointmentStart = AppointmentStart.AddMinutes(10);
+                AppointmentEnd = AppointmentEnd.AddMinutes(10);
+            }
+            AppointmentListBox.ItemsSource = AvailableAppointmentTimes;
         }
+      
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -63,8 +86,19 @@ namespace Capstone.Windows
 
         private void AppointmentSlotsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //AppointmentSlot a = (AppointmentSlot) AppointmentSlotsDataGrid.SelectedItem;
             AddAppointmentWindow aaw = new AddAppointmentWindow();
             aaw.SelectedDate = SelectedDate;
+            aaw.Show();
+            this.Close();
+        }
+
+        private void AppointmentListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime dt = (DateTime) AppointmentListBox.SelectedItem;
+            AddAppointmentWindow aaw = new AddAppointmentWindow();
+            aaw.SelectedDate = dt;
+            aaw.ProcedureTime = MinutesForAppointment;
             aaw.Show();
             this.Close();
         }

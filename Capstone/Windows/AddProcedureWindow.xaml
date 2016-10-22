@@ -1,0 +1,22 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.AddProcedureWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Add Procedure" Height="288.552" Width="415.36"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <Button x:Name="AddProcedureButton" Content="Add Procedure" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" Width="410" Background="#FF7EF309" Click="AddProcedureButton_Click"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="137" Margin="0,97,-3,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Background="#FF15B89A"/>
+        <Label x:Name="label" Content="Description" HorizontalAlignment="Left" Margin="162,71,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Procedure Category" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="ProcedureCategoryComboBox" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="189"/>
+        <TextBox x:Name="ChargeToClientTextBox" HorizontalAlignment="Left" Height="23" Margin="222,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <Label x:Name="label2" Content="Charge to Client" HorizontalAlignment="Left" Margin="222,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Controls:MetroWindow>

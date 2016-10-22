@@ -21,23 +21,24 @@ namespace Capstone
         public string Address { get; set; }
         public string State { get; set; }
         public string City { get; set; }
-        public Nullable<int> ZIP { get; set; }
+        public string ZIP { get; set; }
         public string County { get; set; }
         public string Company { get; set; }
-        public Nullable<int> FaxNumber { get; set; }
-        public Nullable<int> FirstPhoneNumAC { get; set; }
-        public Nullable<int> FirstPhoneNum { get; set; }
-        public Nullable<int> SecondPhoneNumAC { get; set; }
-        public Nullable<int> SecondPhoneNum { get; set; }
+        public string FaxNumber { get; set; }
+        public string FirstPhoneNumAC { get; set; }
+        public string FirstPhoneNum { get; set; }
+        public string SecondPhoneNumAC { get; set; }
+        public string SecondPhoneNum { get; set; }
         public string FirstPhoneNumType { get; set; }
         public string SecondPhoneNumType { get; set; }
-        public Nullable<int> Folder { get; set; }
-        public Nullable<int> Co_ { get; set; }
+        public string Folder { get; set; }
+        public string Co_ { get; set; }
         public string Title { get; set; }
         public string Codes { get; set; }
         public string Class { get; set; }
         public Nullable<double> BalanceDue { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> DateAdded { get; set; }
+        public bool IsInactive { get; set; }
     }
 }

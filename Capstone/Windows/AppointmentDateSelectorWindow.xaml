@@ -9,7 +9,7 @@
         Title="Schedule Appointments" Height="303.572" Width="767.033"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid HorizontalAlignment="Left" Height="288" VerticalAlignment="Top" Width="757">
-        
+
         <Viewbox HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="757">
             <DatePicker x:Name="AppointmentSelectDatePicker" Height="5" Width="182" CalendarOpened="AppointmentSelectDatePicker_CalendarOpened">
             </DatePicker>
@@ -20,6 +20,11 @@
         <Viewbox HorizontalAlignment="Left" Height="71" Margin="516,199,0,0" VerticalAlignment="Top" Width="188">
             <Button x:Name="ScheduleButton" Content="next" Width="75" Height="29" Click="ScheduleButton_Click"/>
         </Viewbox>
+        <TextBox x:Name="ProcedureLengthHrsTextBox" HorizontalAlignment="Left" Height="23" Margin="304,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label13" Content="Procedure Length" HorizontalAlignment="Left" Margin="312,118,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label14" Content="Hrs" HorizontalAlignment="Left" Margin="439,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="ProcedureLengthMinutesTextBox" HorizontalAlignment="Left" Height="23" Margin="304,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label14_Copy" Content="Minutes" HorizontalAlignment="Left" Margin="439,169,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
 </Controls:MetroWindow>
     

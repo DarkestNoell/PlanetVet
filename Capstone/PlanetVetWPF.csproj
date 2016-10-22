@@ -108,19 +108,52 @@
     <Compile Include="AppointmentSlot.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Authentication\AnonymousIdentity.cs" />
+    <Compile Include="Authentication\AuthenticationService.cs" />
+    <Compile Include="Authentication\AuthenticationViewModel.cs" />
+    <Compile Include="Authentication\CustomIdentity.cs" />
+    <Compile Include="Authentication\CustomPrincipal.cs" />
+    <Compile Include="Authentication\DelegateCommand.cs" />
+    <Compile Include="Authentication\IView.cs" />
+    <Compile Include="Authentication\StringCipher.cs" />
     <Compile Include="Breed.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeLog.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Diagnosis.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeChanx.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="ExamRoom.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="HelperClasses\BalanceCalculator.cs" />
     <Compile Include="HelperClasses\StartupQueries.cs" />
+    <Compile Include="InventoryItem.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryItemsCategory.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryLog.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kennel.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="OfficeHour.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
@@ -142,17 +175,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlanetVet.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Procedure.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcedureCategory.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
     <Compile Include="Species.cs">
       <DependentUpon>PlanetVet.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PlanetVet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddAppointmentWindow.xaml.cs">
       <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddCategoryWindow.xaml.cs">
+      <DependentUpon>AddCategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddInventoryForPatientWindow.xaml.cs">
+      <DependentUpon>AddInventoryForPatientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddInventoryItemLogWindow.xaml.cs">
+      <DependentUpon>AddInventoryItemLogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddInventoryItemWindow.xaml.cs">
+      <DependentUpon>AddInventoryItemWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml.cs">
       <DependentUpon>AddMoveDeleteScheduleMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddNewClientWindow.xaml.cs">
+      <DependentUpon>AddNewClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddProcedureWindow.xaml.cs">
+      <DependentUpon>AddProcedureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AppointmentSchedulingWindow.xaml.cs">
       <DependentUpon>AppointmentSchedulingWindow.xaml</DependentUpon>
@@ -161,7 +224,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AddCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddInventoryForPatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddInventoryItemLogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddInventoryItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddMoveDeleteScheduleMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddNewClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddProcedureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,7 +264,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\ClientInformationDisplayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ClientListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EncryptionTestingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InventoryInformationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,13 +297,26 @@
     <Compile Include="Windows\ClientAppointmentHistoryWindow.xaml.cs">
       <DependentUpon>ClientAppointmentHistoryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ClientInformationDisplayWindow.xaml.cs">
+      <DependentUpon>ClientInformationDisplayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ClientListWindow.xaml.cs">
       <DependentUpon>ClientListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EncryptionTestingWindow.xaml.cs">
+      <DependentUpon>EncryptionTestingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InventoryInformationWindow.xaml.cs">
+      <DependentUpon>InventoryInformationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\AddNewPatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\SelectWorkDaysWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelperClasses\AppointmentHoursSetup.cs" />
+    <Compile Include="Windows\AddNewPatientWindow.xaml.cs">
+      <DependentUpon>AddNewPatientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SelectWorkDaysWindow.xaml.cs">
       <DependentUpon>SelectWorkDaysWindow.xaml</DependentUpon>
     </Compile>
@@ -276,6 +391,9 @@
       <DependentUpon>PlanetVet.edmx</DependentUpon>
       <LastGenOutput>PlanetVet.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Encryption\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

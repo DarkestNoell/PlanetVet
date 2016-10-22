@@ -75,5 +75,17 @@ namespace Capstone.Windows
             clw.Show();
             this.Close();
         }
+
+        private void SearchButton_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            PlanetVetWindow pvw = new PlanetVetWindow();
+            pvw.Show();
+            this.Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -48,5 +48,21 @@ namespace Capstone.Windows
             pvw.Show();
             this.Close();
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PlanetVetEntities pve = new PlanetVetEntities();
+                Appointment a = (Appointment)ClientDataGrid.SelectedItem;
+                pve.Appointments.Attach(a);
+                pve.Appointments.Remove(a);
+                pve.SaveChanges();
+                PopulateGrid();
+            }catch
+            {
+
+            }
+        }
     }
 }

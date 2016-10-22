@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlanetVetModelStoreContainer" CdmEntityContainer="PlanetVetEntities">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="PlanetVetModel.Appointment">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Patient" ColumnName="Patient" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProcedureTime" ColumnName="ProcedureTime" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentSlots">
+      <EntityTypeMapping TypeName="PlanetVetModel.AppointmentSlot">
+        <MappingFragment StoreEntitySet="AppointmentSlots">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DayName" ColumnName="DayName" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="TimeParsed" ColumnName="TimeParsed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Breeds">
+      <EntityTypeMapping TypeName="PlanetVetModel.Breed">
+        <MappingFragment StoreEntitySet="Breeds">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="BreedName" ColumnName="BreedName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="PlanetVetModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="FirstPhoneNumAC" ColumnName="FirstPhoneNumAC" />
+          <ScalarProperty Name="FirstPhoneNum" ColumnName="FirstPhoneNum" />
+          <ScalarProperty Name="SecondPhoneNumAC" ColumnName="SecondPhoneNumAC" />
+          <ScalarProperty Name="SecondPhoneNum" ColumnName="SecondPhoneNum" />
+          <ScalarProperty Name="FirstPhoneNumType" ColumnName="FirstPhoneNumType" />
+          <ScalarProperty Name="SecondPhoneNumType" ColumnName="SecondPhoneNumType" />
+          <ScalarProperty Name="Folder" ColumnName="Folder" />
+          <ScalarProperty Name="Co_" ColumnName="Co." />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Codes" ColumnName="Codes" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="BalanceDue" ColumnName="BalanceDue" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="PlanetVetModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+          <ScalarProperty Name="IsDoctor" ColumnName="IsDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamRooms">
+      <EntityTypeMapping TypeName="PlanetVetModel.ExamRoom">
+        <MappingFragment StoreEntitySet="ExamRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExamRoomNumber" ColumnName="ExamRoomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="PlanetVetModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeHours">
+      <EntityTypeMapping TypeName="PlanetVetModel.OfficeHour">
+        <MappingFragment StoreEntitySet="OfficeHours">
+          <ScalarProperty Name="DayID" ColumnName="DayID" />
+          <ScalarProperty Name="DayName" ColumnName="DayName" />
+          <ScalarProperty Name="DayStart" ColumnName="DayStart" />
+          <ScalarProperty Name="DayEnd" ColumnName="DayEnd" />
+          <ScalarProperty Name="LunchStart" ColumnName="LunchStart" />
+          <ScalarProperty Name="LunchEnd" ColumnName="LunchEnd" />
+          <ScalarProperty Name="TentativeWorkingDay" ColumnName="TentativeWorkingDay" />
+          <ScalarProperty Name="TentativeLunchHours" ColumnName="TentativeLunchHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="PlanetVetModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="SpeciesID" ColumnName="SpeciesID" />
+          <ScalarProperty Name="BreedID" ColumnName="BreedID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Breed" ColumnName="Breed" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Codes" ColumnName="Codes" />
+          <ScalarProperty Name="Rabies" ColumnName="Rabies" />
+          <ScalarProperty Name="Plan" ColumnName="Plan" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="WeightType" ColumnName="WeightType" />
+          <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+          <ScalarProperty Name="Reminded" ColumnName="Reminded" />
+          <ScalarProperty Name="Deceased" ColumnName="Deceased" />
+          <ScalarProperty Name="Microchip" ColumnName="Microchip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="PlanetVetModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="DateOfService" ColumnName="DateOfService" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Species">
+      <EntityTypeMapping TypeName="PlanetVetModel.Species">
+        <MappingFragment StoreEntitySet="Species">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

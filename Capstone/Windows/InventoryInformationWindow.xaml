@@ -1,0 +1,29 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.InventoryInformationWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Client Search" Height="409.213" Width="668.824"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="189*"/>
+            <ColumnDefinition Width="472*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="InventoryCategoryListBox" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="200" Margin="0,26,0,0" Grid.ColumnSpan="2" SelectionChanged="InventoryCategoryListBox_SelectionChanged"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="80,0,0,0" Grid.ColumnSpan="2"/>
+        <Label x:Name="label" Content="Item Search" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <DataGrid x:Name="InventoryDataGrid" HorizontalAlignment="Left" Margin="16,26,0,0" VerticalAlignment="Top" Height="284" Width="446" Grid.Column="1" CurrentCellChanged="InventoryDataGrid_CurrentCellChanged"/>
+        <Button x:Name="AddCategoryButton" Content="ADD CATEGORY" HorizontalAlignment="Left" Margin="35,315,0,0" VerticalAlignment="Top" Width="96" Click="AddCategoryButton_Click"/>
+        <Button x:Name="AddInventoryItemToLogButton" Content="ADD ITEM" HorizontalAlignment="Left" Margin="16,315,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1" Click="AddInventoryItemToLogButton_Click"/>
+        <Button x:Name="RemoveItemFromLogButton" Content="REMOVE SELECTED ITEM" HorizontalAlignment="Left" Margin="316,315,0,0" VerticalAlignment="Top" Width="146" Grid.Column="1" Click="RemoveItemFromLogButton_Click"/>
+        <Label x:Name="label1" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="26,0,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ViewInventoryLogButton" Content="VIEW LOG" HorizontalAlignment="Left" Margin="301,0,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1" Click="ViewInventoryLogButton_Click"/>
+        <Button x:Name="ViewInventoryButton" Content="VIEW INVENTORY" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1" Click="ViewInventoryButton_Click"/>
+        <Button x:Name="DeleteSelectedCategory" Content="DELETE SELECTED CATEGORY" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="147" Click="DeleteSelectedCategory_Click"/>
+        <Button x:Name="DashboardButton" Content="DASHBOARD" HorizontalAlignment="Left" Margin="16,348,0,0" VerticalAlignment="Top" Width="446" Grid.Column="1" Click="DashboardButton_Click"/>
+    </Grid>
+</Controls:MetroWindow>

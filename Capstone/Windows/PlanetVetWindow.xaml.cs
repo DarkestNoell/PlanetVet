@@ -41,5 +41,40 @@ namespace Capstone
                 this.Close();
             }
        }
+
+        private void AddNewClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewClientWindow ancw = new AddNewClientWindow();
+            ancw.Show();
+            this.Close();
+        }
+
+        private void ClientSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClientInformationDisplayWindow cidw = new ClientInformationDisplayWindow();
+            cidw.Show();
+            this.Close();
+        }
+
+        private void InventoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryInformationWindow iiw = new InventoryInformationWindow();
+            iiw.Show();
+            this.Close();
+        }
+
+        private void ReconfigureBusinessHoursWindow_Click(object sender, RoutedEventArgs e)
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+            foreach(OfficeHour oh in pve.OfficeHours)
+            {
+                pve.OfficeHours.Remove(oh);
+            }
+
+            pve.SaveChanges();
+            SelectWorkDaysWindow swdw = new SelectWorkDaysWindow();
+            swdw.Show();
+            this.Close();
+        }
     }
 }

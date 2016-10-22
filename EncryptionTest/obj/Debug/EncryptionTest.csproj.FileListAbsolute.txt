@@ -1,0 +1,6 @@
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\bin\Debug\EncryptionTest.exe.config
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\bin\Debug\EncryptionTest.exe
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\bin\Debug\EncryptionTest.pdb
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\obj\Debug\EncryptionTest.csprojResolveAssemblyReference.cache
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\obj\Debug\EncryptionTest.exe
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\EncryptionTest\obj\Debug\EncryptionTest.pdb

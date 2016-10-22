@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlanetVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeEnd" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Client" Type="varchar(max)" Nullable="false" />
+    <Property Name="Patient" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ProcedureTime" Type="int" Nullable="false" />
+    <Property Name="DoctorID" Type="int" Nullable="false" />
+    <Property Name="Doctor" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentSlots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DayName" Type="varchar(max)" Nullable="false" />
+    <Property Name="TimeSlot" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TimeParsed" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Breeds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesName" Type="varchar(max)" />
+    <Property Name="BreedName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="MiddleInitial" Type="char" MaxLength="1" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="State" Type="varchar(max)" />
+    <Property Name="City" Type="varchar(max)" />
+    <Property Name="ZIP" Type="varchar(max)" />
+    <Property Name="County" Type="varchar(max)" />
+    <Property Name="Company" Type="varchar(max)" />
+    <Property Name="FaxNumber" Type="varchar(max)" />
+    <Property Name="FirstPhoneNumAC" Type="varchar(max)" />
+    <Property Name="FirstPhoneNum" Type="varchar(max)" />
+    <Property Name="SecondPhoneNumAC" Type="int" />
+    <Property Name="SecondPhoneNum" Type="int" />
+    <Property Name="FirstPhoneNumType" Type="varchar(max)" />
+    <Property Name="SecondPhoneNumType" Type="varchar(max)" />
+    <Property Name="Folder" Type="int" />
+    <Property Name="Co." Type="int" />
+    <Property Name="Title" Type="varchar(max)" />
+    <Property Name="Codes" Type="varchar(max)" />
+    <Property Name="Class" Type="varchar(max)" />
+    <Property Name="BalanceDue" Type="float" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="DateAdded" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Position" Type="varchar(max)" Nullable="false" />
+    <Property Name="AccessLevel" Type="int" />
+    <Property Name="IsDoctor" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExamRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamRoomNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ItemName" Type="nchar" MaxLength="10" />
+    <Property Name="ItemId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
+    <Property Name="ProcedureID" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="OfficeHours">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="int" Nullable="false" />
+    <Property Name="DayName" Type="varchar(max)" Nullable="false" />
+    <Property Name="DayStart" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="DayEnd" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LunchStart" Type="datetime2" Precision="7" />
+    <Property Name="LunchEnd" Type="datetime2" Precision="7" />
+    <Property Name="TentativeWorkingDay" Type="bit" Nullable="false" />
+    <Property Name="TentativeLunchHours" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="SpeciesID" Type="int" />
+    <Property Name="BreedID" Type="int" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="10" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Breed" Type="varchar(max)" />
+    <Property Name="Color" Type="varchar(max)" />
+    <Property Name="Species" Type="varchar(max)" />
+    <Property Name="Birthday" Type="varchar(max)" />
+    <Property Name="Codes" Type="varchar(max)" />
+    <Property Name="Rabies" Type="varchar(max)" />
+    <Property Name="Plan" Type="varchar(max)" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="WeightType" Type="varchar(max)" />
+    <Property Name="Allergies" Type="bit" />
+    <Property Name="Reminded" Type="varchar(max)" />
+    <Property Name="Deceased" Type="bit" />
+    <Property Name="Microchip" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="DateOfService" Type="varchar(max)" />
+    <Property Name="PatientName" Type="varchar(max)" />
+    <Property Name="Code" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Amount" Type="float" />
+  </EntityType>
+  <EntityType Name="Species">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesName" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="PlanetVetModelStoreContainer">
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Breeds" EntityType="Self.Breeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamRooms" EntityType="Self.ExamRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,27 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.AddInventoryItemLogWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Add to Inventory Logs" Height="378.582" Width="318.918"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Width="316" Margin="0,0,-8,-5">
+        <ComboBox x:Name="InventoryItemCategoryComboBox" HorizontalAlignment="Left" Margin="168,25,0,0" VerticalAlignment="Top" Width="141"/>
+        <Label x:Name="label" Content="Inventory Item Category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,-1,0,0"/>
+        <TextBox x:Name="QuantityTextBox" HorizontalAlignment="Left" Height="35" Margin="0,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <Button x:Name="AddInventoryItemButton" Content="Add Inventory Item" HorizontalAlignment="Left" Margin="0,318,0,-110" VerticalAlignment="Top" Width="316" Height="33" Background="#FF15B89A" Click="AddInventoryItemButton_Click"/>
+        <Label x:Name="label_Copy2" Content="Inventory Item Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,68,0,0"/>
+        <ComboBox x:Name="InventoryItemComboBox" HorizontalAlignment="Left" Margin="3,94,0,0" VerticalAlignment="Top" Width="306"/>
+        <Label x:Name="label_Copy1" Content="Quantity Used" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,125,0,0"/>
+        <Label x:Name="label_Copy3" Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,191,0,0"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="101" Margin="0,217,0,-77" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <Button x:Name="button" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="51" Click="button_Click"/>
+    </Grid>
+
+
+</Controls:MetroWindow>
+ 

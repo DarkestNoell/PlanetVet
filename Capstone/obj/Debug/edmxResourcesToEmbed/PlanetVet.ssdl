@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TimeStart" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="TimeEnd" Type="datetime2" Precision="7" />
+    <Property Name="TimeEnd" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="Client" Type="varchar(max)" Nullable="false" />
     <Property Name="Patient" Type="varchar(max)" />
     <Property Name="Description" Type="varchar(max)" />
@@ -31,35 +31,76 @@
     <Property Name="SpeciesName" Type="varchar(max)" />
     <Property Name="BreedName" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="ChangeLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar(max)" />
+    <Property Name="EmployeeAccessLevel" Type="int" />
+    <Property Name="Change Description" Type="varchar(max)" />
+    <Property Name="ChangeLevel" Type="int" />
+  </EntityType>
   <EntityType Name="Clients">
     <Key>
       <PropertyRef Name="ClientId" />
     </Key>
     <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
-    <Property Name="MiddleInitial" Type="char" MaxLength="1" />
+    <Property Name="MiddleInitial" Type="varchar(max)" />
     <Property Name="LastName" Type="varchar(max)" Nullable="false" />
-    <Property Name="Address" Type="varchar(max)" />
-    <Property Name="State" Type="varchar" MaxLength="50" />
-    <Property Name="City" Type="varchar(max)" />
-    <Property Name="ZIP" Type="int" />
-    <Property Name="County" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="State" Type="varchar(max)" Nullable="false" />
+    <Property Name="City" Type="varchar(max)" Nullable="false" />
+    <Property Name="ZIP" Type="varchar(max)" Nullable="false" />
+    <Property Name="County" Type="varchar(max)" Nullable="false" />
     <Property Name="Company" Type="varchar(max)" />
-    <Property Name="FaxNumber" Type="int" />
-    <Property Name="FirstPhoneNumAC" Type="int" />
-    <Property Name="FirstPhoneNum" Type="int" />
-    <Property Name="SecondPhoneNumAC" Type="int" />
-    <Property Name="SecondPhoneNum" Type="int" />
+    <Property Name="FaxNumber" Type="varchar(max)" />
+    <Property Name="FirstPhoneNumAC" Type="varchar(max)" />
+    <Property Name="FirstPhoneNum" Type="varchar(max)" />
+    <Property Name="SecondPhoneNumAC" Type="varchar(max)" />
+    <Property Name="SecondPhoneNum" Type="varchar(max)" />
     <Property Name="FirstPhoneNumType" Type="varchar(max)" />
     <Property Name="SecondPhoneNumType" Type="varchar(max)" />
-    <Property Name="Folder" Type="int" />
-    <Property Name="Co." Type="int" />
+    <Property Name="Folder" Type="varchar(max)" />
+    <Property Name="Co." Type="varchar(max)" />
     <Property Name="Title" Type="varchar(max)" />
     <Property Name="Codes" Type="varchar(max)" />
     <Property Name="Class" Type="varchar(max)" />
     <Property Name="BalanceDue" Type="float" />
     <Property Name="Email" Type="varchar(max)" />
     <Property Name="DateAdded" Type="datetime2" Precision="7" />
+    <Property Name="IsInactive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnoses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiagnosisCategory" Type="varchar(max)" />
+    <Property Name="PatientID" Type="nchar" MaxLength="10" />
+    <Property Name="Diagnosis Notes" Type="varchar(max)" />
+    <Property Name="ProcedureID" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Path" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="EmployeeChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ChangeType" Type="nchar" MaxLength="10" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
+    <Property Name="EmployeeID" Type="nchar" MaxLength="10" />
+    <Property Name="EmployeeInitials" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Employees">
     <Key>
@@ -79,6 +120,47 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ExamRoomNumber" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="InventoryItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="StockOnHand" Type="varchar(max)" />
+    <Property Name="PricePerUnit" Type="float" />
+  </EntityType>
+  <EntityType Name="InventoryItemsCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="InventoryLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar(max)" />
+    <Property Name="InventoryItemName" Type="varchar(max)" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="Quantity" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Employee Initials" Type="varchar(max)" />
+    <Property Name="ChargeToClient" Type="float" />
+  </EntityType>
+  <EntityType Name="Kennels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KennelID" Type="varchar(max)" />
+    <Property Name="PetID" Type="int" />
+    <Property Name="PetName" Type="varchar(max)" />
+    <Property Name="BoardingStartDate" Type="datetime2" Precision="7" />
+    <Property Name="BoardingEndDate" Type="datetime2" Precision="7" />
+  </EntityType>
   <EntityType Name="OfficeHours">
     <Key>
       <PropertyRef Name="DayID" />
@@ -97,10 +179,12 @@
       <PropertyRef Name="PatientID" />
     </Key>
     <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ClientID" Type="int" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="SpeciesID" Type="int" Nullable="false" />
+    <Property Name="BreedID" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar(max)" Nullable="false" />
     <Property Name="Sex" Type="char" MaxLength="10" />
-    <Property Name="Age" Type="int" />
+    <Property Name="Age" Type="varchar(max)" />
     <Property Name="Breed" Type="varchar(max)" />
     <Property Name="Color" Type="varchar(max)" />
     <Property Name="Species" Type="varchar(max)" />
@@ -114,6 +198,32 @@
     <Property Name="Reminded" Type="varchar(max)" />
     <Property Name="Deceased" Type="bit" />
     <Property Name="Microchip" Type="varchar(max)" />
+    <Property Name="Image" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcedureCategory" Type="varchar(max)" />
+    <Property Name="ProcedureDescription" Type="varchar(max)" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="ProcedureCost" Type="float" />
+  </EntityType>
+  <EntityType Name="ProcedureCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleLevel" Type="int" />
+    <Property Name="RoleName" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Services">
     <Key>
@@ -136,16 +246,37 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SpeciesName" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Password(Encrypted)" Type="varchar(max)" />
+    <Property Name="AccessLevel" Type="nchar" MaxLength="10" />
+  </EntityType>
   <EntityContainer Name="PlanetVetModelStoreContainer">
     <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AppointmentSlots" EntityType="Self.AppointmentSlots" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Breeds" EntityType="Self.Breeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChangeLogs" EntityType="Self.ChangeLogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnoses" EntityType="Self.Diagnoses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeChanges" EntityType="Self.EmployeeChanges" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExamRooms" EntityType="Self.ExamRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryItems" EntityType="Self.InventoryItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryItemsCategories" EntityType="Self.InventoryItemsCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryLog" EntityType="Self.InventoryLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kennels" EntityType="Self.Kennels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfficeHours" EntityType="Self.OfficeHours" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedure" EntityType="Self.Procedure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcedureCategories" EntityType="Self.ProcedureCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

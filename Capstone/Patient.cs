@@ -15,10 +15,12 @@ namespace Capstone
     public partial class Patient
     {
         public int PatientID { get; set; }
-        public Nullable<int> ClientID { get; set; }
+        public int ClientID { get; set; }
+        public int SpeciesID { get; set; }
+        public int BreedID { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
-        public Nullable<int> Age { get; set; }
+        public string Age { get; set; }
         public string Breed { get; set; }
         public string Color { get; set; }
         public string Species { get; set; }
@@ -32,5 +34,6 @@ namespace Capstone
         public string Reminded { get; set; }
         public Nullable<bool> Deceased { get; set; }
         public string Microchip { get; set; }
+        public byte[] Image { get; set; }
     }
 }

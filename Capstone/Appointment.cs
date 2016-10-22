@@ -16,7 +16,7 @@ namespace Capstone
     {
         public int Id { get; set; }
         public System.DateTime TimeStart { get; set; }
-        public Nullable<System.DateTime> TimeEnd { get; set; }
+        public System.DateTime TimeEnd { get; set; }
         public string Client { get; set; }
         public string Patient { get; set; }
         public string Description { get; set; }

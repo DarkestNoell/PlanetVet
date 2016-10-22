@@ -28,12 +28,24 @@ namespace Capstone
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<AppointmentSlot> AppointmentSlots { get; set; }
         public virtual DbSet<Breed> Breeds { get; set; }
+        public virtual DbSet<ChangeLog> ChangeLogs { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Diagnosis> Diagnoses { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<EmployeeChanx> EmployeeChanges { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<ExamRoom> ExamRooms { get; set; }
+        public virtual DbSet<InventoryItem> InventoryItems { get; set; }
+        public virtual DbSet<InventoryItemsCategory> InventoryItemsCategories { get; set; }
+        public virtual DbSet<InventoryLog> InventoryLogs { get; set; }
+        public virtual DbSet<Kennel> Kennels { get; set; }
         public virtual DbSet<OfficeHour> OfficeHours { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<Procedure> Procedures { get; set; }
+        public virtual DbSet<ProcedureCategory> ProcedureCategories { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Species> Species { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

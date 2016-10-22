@@ -41,10 +41,35 @@ namespace Capstone
 
         private void ScheduleButton_Click(object sender, RoutedEventArgs e)
         {
-            AppointmentSchedulingWindow asw = new AppointmentSchedulingWindow();
-            asw.SelectedDate = AppointmentSelectDatePicker.SelectedDate.Value;
-            asw.Show();
-            this.Close();
+
+            if (ProcedureLengthHrsTextBox.Text.Equals("") && ProcedureLengthMinutesTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Please supply an appointment length!");
+            }
+            else
+            {
+                int MinutesNeeded = 0;
+                if (!ProcedureLengthHrsTextBox.Text.Equals(""))
+                {
+                    int num = int.Parse(ProcedureLengthHrsTextBox.Text);
+                    num *= 60;
+                    MinutesNeeded += num;
+                }
+                else if (!ProcedureLengthMinutesTextBox.Text.Equals(""))
+                {
+                    MinutesNeeded += int.Parse(ProcedureLengthMinutesTextBox.Text);
+                }
+
+                
+                AppointmentSchedulingWindow.SelectedDate = AppointmentSelectDatePicker.SelectedDate.Value;
+                AppointmentSchedulingWindow.MinutesForAppointment = MinutesNeeded;
+
+                AppointmentSchedulingWindow asw = new AppointmentSchedulingWindow();
+                asw.Show();
+                this.Close();
+            }
+
+            
         }
 
         private bool DayBooked(DateTime dayToCheck, int timeNeededForAppoinment)

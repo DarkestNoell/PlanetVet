@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using Authentication_Library;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,13 @@ using System.Windows.Shapes;
 
 namespace Capstone
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : MetroWindow, IView
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -46,6 +48,10 @@ namespace Capstone
             }
         }
 
-
+        public IViewModel ViewModel
+        {
+            get { return DataContext as IViewModel; }
+            set { DataContext = value; }
+        }
     }
 }

@@ -6,20 +6,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Capstone"
         mc:Ignorable="d"
-        Title="Appointment Menu" Height="266.213" Width="356.824"
+        Title="Appointment Menu" Height="284.893" Width="356.824"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid Margin="0,0,-8,0">
-        <Button x:Name="NewButton" Content="NEW&#xD;&#xA;   +" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="198" FontFamily="Arial" FontSize="24" Background="#FF15B89A" Click="NewButton_Click" Margin="0,44,0,-4"/>
-        <Button x:Name="MoveButton" Content="MOVE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="198" Margin="112,44,0,-4" FontSize="24" Background="#FF8B4098" Click="MoveButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel&#xD;&#xA;      -" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="198" Margin="237,44,0,-4" FontSize="24" Background="#FF15B89A"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="13" Margin="107,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
-        <ComboBox x:Name="SearchComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="0,13,0,0" Height="26">
+        <Button x:Name="NewButton" Content="NEW&#xD;&#xA;   +" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="198" FontFamily="Arial" FontSize="24" Background="#FF15B89A" Click="NewButton_Click" Margin="0,61,0,-4"/>
+        <Button x:Name="MoveButton" Content="MOVE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Height="198" Margin="180,61,0,-4" FontSize="24" Background="#FF8B4098" Click="MoveButton_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="13" Margin="107,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <ComboBox x:Name="SearchComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="0,30,0,0" Height="26">
             <ComboBoxItem Content="First Name" HorizontalAlignment="Left" Width="86"/>
             <ComboBoxItem Content="Last Name" HorizontalAlignment="Left" Width="86"/>
             <ComboBoxItem Content="Full Name" HorizontalAlignment="Left" Width="105"/>
         </ComboBox>
-        <Button x:Name="SearchButton" Content="search" HorizontalAlignment="Left" Margin="293,13,0,0" VerticalAlignment="Top" Width="54" Height="26" Click="SearchButton_Click"/>
-        <Label x:Name="label" Content="Search for a recurring client's appointments' by:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="-1,-8,0,0"/>
+        <Button x:Name="SearchButton" Content="search" HorizontalAlignment="Left" Margin="293,30,0,0" VerticalAlignment="Top" Width="54" Height="26" Click="SearchButton_Click"/>
+        <Label x:Name="label" Content="Search for a client's appointment to modify/delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="-1,9,0,0"/>
+        <Button x:Name="SearchButton_Copy" Content="DASHBOARD" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Top" Width="72" Height="5" Click="SearchButton_Copy_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

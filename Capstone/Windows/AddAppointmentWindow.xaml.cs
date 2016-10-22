@@ -21,13 +21,15 @@ namespace Capstone.Windows
     public partial class AddAppointmentWindow : MetroWindow
     {
         public DateTime SelectedDate { get; set; }
+        public int ProcedureTime { get; set; }
 
         public AddAppointmentWindow()
         {
             InitializeComponent();
+            FillComboBoxes();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void FillComboBoxes()
         {
             //Populate Combo Boxes accordingly
             DateTimeDisplayLabel.Content = SelectedDate.ToShortDateString();
@@ -104,6 +106,34 @@ namespace Capstone.Windows
                 WeightTextBox.Text = ClientsPet.Weight.ToString();
             }
             }
+
+        private void ScheduleButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+            DateTime ApptEnd = SelectedDate.AddMinutes(ProcedureTime);
+           
+            
+            String text = DoctorComboBox.Text;
+            String[] DoctorName = text.Split(null);
+            String first = DoctorName[0];
+            String last = DoctorName[1];
+            Employee Doctor = pve.Employees.Where(doc => doc.FirstName.Equals(first) && doc.LastName.Equals(last)).FirstOrDefault();
+
+            Appointment a = new Appointment()
+            {
+                TimeStart = SelectedDate,
+                TimeEnd = ApptEnd,
+                Client = ClientLastNameTextBox.Text + "," + ClientFirstNameTextBox.Text,
+                Patient = PatientComboBox.Text,
+                Description = NotesTextBox.Text,
+                ProcedureTime = ProcedureTime,
+                Doctor = Doctor.LastName + "," + Doctor.FirstName,
+                DoctorID = Doctor.EmployeeId
+            };
+
+            pve.Appointments.Add(a);
+            pve.SaveChanges();
         }
+    }
     }
 

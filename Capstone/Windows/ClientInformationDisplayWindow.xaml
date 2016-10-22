@@ -1,0 +1,102 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.ClientInformationDisplayWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Client Information" Height="740.713" Width="1800.324"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid Margin="0,-24,-8,-1">
+        <TextBox x:Name="ClientLastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="37,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ClientFirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="175,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="SearchButton" Content="SEARCH" HorizontalAlignment="Left" Margin="314,78,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click"/>
+        <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="31,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="MiddleInitialTextBox" HorizontalAlignment="Left" Height="23" Margin="169,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="242,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Height="23" Margin="414,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="StateTextBox" HorizontalAlignment="Left" Height="23" Margin="565,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
+        <TextBox x:Name="PhoneNumber1AreaCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="CountryTextBox" HorizontalAlignment="Left" Height="23" Margin="414,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ZIPCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="565,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Height="23" Margin="414,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PhoneNumber2AreaCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="Phone2TextBox" HorizontalAlignment="Left" Height="23" Margin="242,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CompanyTextBox" HorizontalAlignment="Left" Height="23" Margin="31,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="BalanceDueTextBox" HorizontalAlignment="Left" Height="23" Margin="768,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="#FF23FF00" Text="0.00"/>
+        <TextBox x:Name="FaxNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="31,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="169,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="CodesTextBox" HorizontalAlignment="Left" Height="23" Margin="242,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DateAddedTextBox" HorizontalAlignment="Left" Height="23" Margin="616,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="FolderTextBox" HorizontalAlignment="Left" Height="23" Margin="31,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78"/>
+        <TextBox x:Name="CoTextBox" HorizontalAlignment="Left" Height="23" Margin="139,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="Phone1TextBox" HorizontalAlignment="Left" Height="23" Margin="242,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="PatientsDataGrid" HorizontalAlignment="Left" Margin="-3,584,0,0" VerticalAlignment="Top" Height="148" Width="1793" SelectionChanged="PatientsDataGrid_SelectionChanged" CurrentCellChanged="PatientsDataGrid_CurrentCellChanged"/>
+        <Image x:Name="PatientImage" HorizontalAlignment="Left" Height="243" Margin="666,255,0,0" VerticalAlignment="Top" Width="366" Source="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png"/>
+
+        <Button Height="23" HorizontalAlignment="Left" 
+        	Margin="788,0,0,208" x:Name="UploadImageButton" VerticalAlignment="Bottom" 
+        	Width="107" Content="UPLOAD IMAGE" Click="UploadImageButton_Click"/>
+
+        <Label x:Name="label" Content="Last Name" HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="First Name" HorizontalAlignment="Left" Margin="175,52,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="Title" HorizontalAlignment="Left" Margin="31,166,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy2" Content="First Name" HorizontalAlignment="Left" Margin="31,224,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy3" Content="MI" HorizontalAlignment="Left" Margin="169,224,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy4" Content="Last Name" HorizontalAlignment="Left" Margin="242,224,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy5" Content="Address" HorizontalAlignment="Left" Margin="414,250,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy6" Content="State" HorizontalAlignment="Left" Margin="565,250,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy7" Content="City" HorizontalAlignment="Left" Margin="414,298,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy8" Content="ZIP Code" HorizontalAlignment="Left" Margin="565,298,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy9" Content="County" HorizontalAlignment="Left" Margin="414,348,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Company" HorizontalAlignment="Left" Margin="31,272,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Phone 1 Type" HorizontalAlignment="Left" Margin="31,348,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy" Content="Phone 2 Type" HorizontalAlignment="Left" Margin="31,392,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy1" Content="AC" HorizontalAlignment="Left" Margin="169,348,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy2" Content="Phone 1 #" HorizontalAlignment="Left" Margin="242,342,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy3" Content="AC" HorizontalAlignment="Left" Margin="168,392,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy4" Content="Phone 2#" HorizontalAlignment="Left" Margin="242,392,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Phone1TypeComboBox" HorizontalAlignment="Left" Margin="31,374,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Home" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Cell" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Work" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="Phone2TypeComboBox" HorizontalAlignment="Left" Margin="31,424,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Home" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Cell" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Work" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label x:Name="label3" Content="Fax" HorizontalAlignment="Left" Margin="31,446,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label4" Content="Email" HorizontalAlignment="Left" Margin="169,450,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Folder" HorizontalAlignment="Left" Margin="31,494,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy" Content="Co." HorizontalAlignment="Left" Margin="139,494,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy1" Content="Codes" HorizontalAlignment="Left" Margin="242,494,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ClassTextBox" HorizontalAlignment="Left" Height="23" Margin="381,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
+        <Label x:Name="label5_Copy3" Content="Class" HorizontalAlignment="Left" Margin="381,494,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Date Added" HorizontalAlignment="Left" Margin="616,53,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6_Copy" Content="Balance Due" HorizontalAlignment="Left" Margin="768,53,0,0" VerticalAlignment="Top" Background="White" Foreground="Red"/>
+        <Label x:Name="label7" Content="Select a Patient Below to view that animal's record data" HorizontalAlignment="Left" Margin="-3,553,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <CheckBox x:Name="IsInactiveCheckBox" Content="Client Inactive" HorizontalAlignment="Left" Margin="768,111,0,0" VerticalAlignment="Top" Checked="IsInactiveCheckBox_Checked" Unchecked="IsInactiveCheckbox_Unchecked"/>
+        <ListBox x:Name="RecommendedSearchListBox" HorizontalAlignment="Left" Height="56" Margin="37,104,0,0" VerticalAlignment="Top" Width="258" SelectionChanged="RecommendedSearchListBox_SelectionChanged"/>
+        <Button x:Name="DashBoardButton" Content="DASHBOARD" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="75" Click="DashBoardButton_Click"/>
+        <DataGrid x:Name="PatientProceduresDataGrid" HorizontalAlignment="Left" Margin="1126,87,0,0" VerticalAlignment="Top" Height="233" Width="664" SelectionChanged="PatientProceduresDataGrid_SelectionChanged" CurrentCellChanged="PatientProceduresDataGrid_CurrentCellChanged"/>
+        <Label x:Name="label7_Copy1" Content="Procedure History" HorizontalAlignment="Left" Margin="1124,57,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52"/>
+        <Button x:Name="NewPatientComboBox" Content="New Patient" HorizontalAlignment="Left" Margin="326,554,0,0" VerticalAlignment="Top" Width="92" Click="NewPatientComboBox_Click"/>
+        <Button x:Name="AddProcedureButton" Content="ADD Procedure" HorizontalAlignment="Left" Margin="1240,57,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddProcedureButton_Click"/>
+        <Button x:Name="DeleteProcedureButton" Content="Delete Procedure" HorizontalAlignment="Left" Margin="1460,57,0,0" VerticalAlignment="Top" Width="106" Height="25" Click="DeleteProcedureButton_Click"/>
+        <Button x:Name="SaveClientChanges" Content="SAVE CHANGES FOR CLIENT" HorizontalAlignment="Left" Margin="472,520,0,0" VerticalAlignment="Top" Width="156" Click="SaveClientChanges_Click"/>
+        <ComboBox x:Name="TitleComboBox" HorizontalAlignment="Left" Margin="31,197,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Mr." HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Mrs." HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Ms." HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Dr." HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Sir" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label x:Name="label8" Content="Patient Image:" HorizontalAlignment="Left" Margin="666,224,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="label7_Copy" Content="Items used on Patient" HorizontalAlignment="Left" Margin="1126,332,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52"/>
+        <DataGrid x:Name="ItemsUsedOnPatientDataGrid" HorizontalAlignment="Left" Margin="1126,368,0,0" VerticalAlignment="Top" Height="216" Width="664" CurrentCellChanged="ItemsUsedDataGrid_CurrentCellChanged"/>
+        <Button x:Name="AddItemsButton" Content="ADD" HorizontalAlignment="Left" Margin="1264,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddItemsButton_Click"/>
+        <Button x:Name="RemoveItemButton" Content="remove" HorizontalAlignment="Left" Margin="1394,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="RemoveItemButton_Click"/>
+    </Grid>
+</Controls:MetroWindow>
