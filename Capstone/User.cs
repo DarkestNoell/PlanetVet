@@ -15,7 +15,7 @@ namespace Capstone
     public partial class User
     {
         public int Id { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
+        public string UserName { get; set; }
         public string Password_Encrypted_ { get; set; }
         public string AccessLevel { get; set; }
     }

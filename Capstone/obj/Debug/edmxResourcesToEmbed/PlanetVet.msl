@@ -90,16 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Documents">
-      <EntityTypeMapping TypeName="PlanetVetModel.Document">
-        <MappingFragment StoreEntitySet="Documents">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Path" ColumnName="Path" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="EmployeeChanges">
       <EntityTypeMapping TypeName="PlanetVetModel.EmployeeChanx">
         <MappingFragment StoreEntitySet="EmployeeChanges">
@@ -108,6 +98,17 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="EmployeeInitials" ColumnName="EmployeeInitials" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeLunchLogs">
+      <EntityTypeMapping TypeName="PlanetVetModel.EmployeeLunchLog">
+        <MappingFragment StoreEntitySet="EmployeeLunchLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="LunchStart" ColumnName="LunchStart" />
+          <ScalarProperty Name="LunchEnd" ColumnName="LunchEnd" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -120,6 +121,23 @@
           <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
           <ScalarProperty Name="IsDoctor" ColumnName="IsDoctor" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsFullTime" ColumnName="IsFullTime" />
+          <ScalarProperty Name="IsWorking" ColumnName="IsWorking" />
+          <ScalarProperty Name="IsOnLunchBreak" ColumnName="IsOnLunchBreak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeWorkHourLogs">
+      <EntityTypeMapping TypeName="PlanetVetModel.EmployeeWorkHourLog">
+        <MappingFragment StoreEntitySet="EmployeeWorkHourLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Clock_In" ColumnName="Clock In" />
+          <ScalarProperty Name="Clock_Out" ColumnName="Clock Out" />
+          <ScalarProperty Name="LunchStart" ColumnName="LunchStart" />
+          <ScalarProperty Name="LunchEnd" ColumnName="LunchEnd" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -187,6 +205,18 @@
           <ScalarProperty Name="LunchEnd" ColumnName="LunchEnd" />
           <ScalarProperty Name="TentativeWorkingDay" ColumnName="TentativeWorkingDay" />
           <ScalarProperty Name="TentativeLunchHours" ColumnName="TentativeLunchHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientDocuments">
+      <EntityTypeMapping TypeName="PlanetVetModel.PatientDocument">
+        <MappingFragment StoreEntitySet="PatientDocuments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DocumentCategory" ColumnName="DocumentCategory" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -272,9 +302,20 @@
       <EntityTypeMapping TypeName="PlanetVetModel.User">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password_Encrypted_" ColumnName="Password(Encrypted)" />
           <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSessions">
+      <EntityTypeMapping TypeName="PlanetVetModel.UserSession">
+        <MappingFragment StoreEntitySet="UserSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="SessionStart" ColumnName="SessionStart" />
+          <ScalarProperty Name="SessionEnd" ColumnName="SessionEnd" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

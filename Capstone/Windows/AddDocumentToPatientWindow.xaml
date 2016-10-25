@@ -1,0 +1,20 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.AddDocumentToPatientWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Attach Document" Height="204.229" Width="285.087"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <Button x:Name="button" Content="UPLOAD" HorizontalAlignment="Left" Margin="96,149,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FF15B89A"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="83" Margin="0,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277"/>
+        <Label x:Name="label" Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="0,21,0,0"/>
+        <ComboBox x:Name="CategoryComboBox" HorizontalAlignment="Left" Margin="157,21,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="157,-5,0,0"/>
+
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,19 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.ClockInOutWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Appointment Menu" Height="260.046" Width="256.324"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <Button x:Name="ClockInButton" Content="CLOCK IN" HorizontalAlignment="Left" VerticalAlignment="Top" Width="248" Height="45" Click="ClockInButton_Click"/>
+        <Button x:Name="LunchStartButton" Content="LUNCH START" HorizontalAlignment="Left" VerticalAlignment="Top" Width="248" Height="46" Margin="0,90,0,0" Click="LunchStartButton_Click"/>
+        <Button x:Name="ClockOutButton" Content="CLOCK OUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="248" Height="45" Margin="0,45,0,0" Click="ClockOutButton_Click"/>
+        <Button x:Name="LunchEndButton" Content="LUNCH END" HorizontalAlignment="Left" VerticalAlignment="Top" Width="248" Height="46" Margin="0,136,0,0" Click="LunchEndButton_Click"/>
+        <Button x:Name="DashBoardButton" Content="DASHBOARD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="248" Height="26" Margin="0,204,0,0" Click="DashBoardButton_Click"/>
+
+    </Grid>
+</Controls:MetroWindow>

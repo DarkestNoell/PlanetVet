@@ -9,6 +9,10 @@
         Title="Client Information" Height="740.713" Width="1800.324"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid Margin="0,-24,-8,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1031*"/>
+            <ColumnDefinition Width="769*"/>
+        </Grid.ColumnDefinitions>
         <TextBox x:Name="ClientLastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="37,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="ClientFirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="175,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="SearchButton" Content="SEARCH" HorizontalAlignment="Left" Margin="314,78,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click"/>
@@ -24,16 +28,16 @@
         <TextBox x:Name="PhoneNumber2AreaCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
         <TextBox x:Name="Phone2TextBox" HorizontalAlignment="Left" Height="23" Margin="242,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CompanyTextBox" HorizontalAlignment="Left" Height="23" Margin="31,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="BalanceDueTextBox" HorizontalAlignment="Left" Height="23" Margin="768,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="#FF23FF00" Text="0.00"/>
+        <TextBox x:Name="BalanceDueTextBox" HorizontalAlignment="Left" Height="23" Margin="472,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="#FF23FF00" Text="0.00"/>
         <TextBox x:Name="FaxNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="31,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="169,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
         <TextBox x:Name="CodesTextBox" HorizontalAlignment="Left" Height="23" Margin="242,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DateAddedTextBox" HorizontalAlignment="Left" Height="23" Margin="616,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DateAddedTextBox" HorizontalAlignment="Left" Height="23" Margin="472,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="FolderTextBox" HorizontalAlignment="Left" Height="23" Margin="31,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78"/>
         <TextBox x:Name="CoTextBox" HorizontalAlignment="Left" Height="23" Margin="139,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
         <TextBox x:Name="Phone1TextBox" HorizontalAlignment="Left" Height="23" Margin="242,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="PatientsDataGrid" HorizontalAlignment="Left" Margin="-3,584,0,0" VerticalAlignment="Top" Height="148" Width="1793" SelectionChanged="PatientsDataGrid_SelectionChanged" CurrentCellChanged="PatientsDataGrid_CurrentCellChanged"/>
-        <Image x:Name="PatientImage" HorizontalAlignment="Left" Height="243" Margin="666,255,0,0" VerticalAlignment="Top" Width="366" Source="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png"/>
+        <DataGrid x:Name="PatientsDataGrid" HorizontalAlignment="Left" Margin="-3,584,0,0" VerticalAlignment="Top" Height="148" Width="1793" SelectionChanged="PatientsDataGrid_SelectionChanged" CurrentCellChanged="PatientsDataGrid_CurrentCellChanged" Grid.ColumnSpan="2"/>
+        <Image x:Name="PatientImage" HorizontalAlignment="Left" Height="243" Margin="666,255,0,0" VerticalAlignment="Top" Width="366" Source="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png" Grid.ColumnSpan="2"/>
 
         <Button Height="23" HorizontalAlignment="Left" 
         	Margin="788,0,0,208" x:Name="UploadImageButton" VerticalAlignment="Bottom" 
@@ -74,17 +78,17 @@
         <Label x:Name="label5_Copy1" Content="Codes" HorizontalAlignment="Left" Margin="242,494,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="ClassTextBox" HorizontalAlignment="Left" Height="23" Margin="381,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <Label x:Name="label5_Copy3" Content="Class" HorizontalAlignment="Left" Margin="381,494,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label6" Content="Date Added" HorizontalAlignment="Left" Margin="616,53,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label6_Copy" Content="Balance Due" HorizontalAlignment="Left" Margin="768,53,0,0" VerticalAlignment="Top" Background="White" Foreground="Red"/>
+        <Label x:Name="label6" Content="Date Added" HorizontalAlignment="Left" Margin="472,52,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6_Copy" Content="Balance Due" HorizontalAlignment="Left" Margin="472,116,0,0" VerticalAlignment="Top" Background="White" Foreground="Red"/>
         <Label x:Name="label7" Content="Select a Patient Below to view that animal's record data" HorizontalAlignment="Left" Margin="-3,553,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <CheckBox x:Name="IsInactiveCheckBox" Content="Client Inactive" HorizontalAlignment="Left" Margin="768,111,0,0" VerticalAlignment="Top" Checked="IsInactiveCheckBox_Checked" Unchecked="IsInactiveCheckbox_Unchecked"/>
+        <CheckBox x:Name="IsInactiveCheckBox" Content="Client Inactive" HorizontalAlignment="Left" Margin="472,174,0,0" VerticalAlignment="Top" Checked="IsInactiveCheckBox_Checked" Unchecked="IsInactiveCheckbox_Unchecked"/>
         <ListBox x:Name="RecommendedSearchListBox" HorizontalAlignment="Left" Height="56" Margin="37,104,0,0" VerticalAlignment="Top" Width="258" SelectionChanged="RecommendedSearchListBox_SelectionChanged"/>
         <Button x:Name="DashBoardButton" Content="DASHBOARD" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="75" Click="DashBoardButton_Click"/>
-        <DataGrid x:Name="PatientProceduresDataGrid" HorizontalAlignment="Left" Margin="1126,87,0,0" VerticalAlignment="Top" Height="233" Width="664" SelectionChanged="PatientProceduresDataGrid_SelectionChanged" CurrentCellChanged="PatientProceduresDataGrid_CurrentCellChanged"/>
-        <Label x:Name="label7_Copy1" Content="Procedure History" HorizontalAlignment="Left" Margin="1124,57,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52"/>
+        <DataGrid x:Name="PatientProceduresDataGrid" HorizontalAlignment="Left" Margin="95,87,0,0" VerticalAlignment="Top" Height="233" Width="664" SelectionChanged="PatientProceduresDataGrid_SelectionChanged" CurrentCellChanged="PatientProceduresDataGrid_CurrentCellChanged" Grid.Column="1"/>
+        <Label x:Name="label7_Copy1" Content="Procedure History" HorizontalAlignment="Left" Margin="93,57,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52" Grid.Column="1"/>
         <Button x:Name="NewPatientComboBox" Content="New Patient" HorizontalAlignment="Left" Margin="326,554,0,0" VerticalAlignment="Top" Width="92" Click="NewPatientComboBox_Click"/>
-        <Button x:Name="AddProcedureButton" Content="ADD Procedure" HorizontalAlignment="Left" Margin="1240,57,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddProcedureButton_Click"/>
-        <Button x:Name="DeleteProcedureButton" Content="Delete Procedure" HorizontalAlignment="Left" Margin="1460,57,0,0" VerticalAlignment="Top" Width="106" Height="25" Click="DeleteProcedureButton_Click"/>
+        <Button x:Name="AddProcedureButton" Content="ADD Procedure" HorizontalAlignment="Left" Margin="209,57,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddProcedureButton_Click" Grid.Column="1"/>
+        <Button x:Name="DeleteProcedureButton" Content="Delete Procedure" HorizontalAlignment="Left" Margin="429,57,0,0" VerticalAlignment="Top" Width="106" Height="25" Click="DeleteProcedureButton_Click" Grid.Column="1"/>
         <Button x:Name="SaveClientChanges" Content="SAVE CHANGES FOR CLIENT" HorizontalAlignment="Left" Margin="472,520,0,0" VerticalAlignment="Top" Width="156" Click="SaveClientChanges_Click"/>
         <ComboBox x:Name="TitleComboBox" HorizontalAlignment="Left" Margin="31,197,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Mr." HorizontalAlignment="Left" Width="118"/>
@@ -94,9 +98,13 @@
             <ComboBoxItem Content="Sir" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
         <Label x:Name="label8" Content="Patient Image:" HorizontalAlignment="Left" Margin="666,224,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="label7_Copy" Content="Items used on Patient" HorizontalAlignment="Left" Margin="1126,332,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52"/>
-        <DataGrid x:Name="ItemsUsedOnPatientDataGrid" HorizontalAlignment="Left" Margin="1126,368,0,0" VerticalAlignment="Top" Height="216" Width="664" CurrentCellChanged="ItemsUsedDataGrid_CurrentCellChanged"/>
-        <Button x:Name="AddItemsButton" Content="ADD" HorizontalAlignment="Left" Margin="1264,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddItemsButton_Click"/>
-        <Button x:Name="RemoveItemButton" Content="remove" HorizontalAlignment="Left" Margin="1394,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="RemoveItemButton_Click"/>
+        <Label x:Name="label7_Copy" Content="Items used on Patient" HorizontalAlignment="Left" Margin="95,332,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="52" Grid.Column="1"/>
+        <DataGrid x:Name="ItemsUsedOnPatientDataGrid" HorizontalAlignment="Left" Margin="95,368,0,0" VerticalAlignment="Top" Height="216" Width="664" CurrentCellChanged="ItemsUsedDataGrid_CurrentCellChanged" Grid.Column="1"/>
+        <Button x:Name="AddItemsButton" Content="ADD" HorizontalAlignment="Left" Margin="233,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="AddItemsButton_Click" Grid.Column="1"/>
+        <Button x:Name="RemoveItemButton" Content="remove" HorizontalAlignment="Left" Margin="363,333,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="RemoveItemButton_Click" Grid.Column="1"/>
+        <DataGrid x:Name="PatientDocumentsDataGrid" HorizontalAlignment="Left" Margin="616,87,0,0" VerticalAlignment="Top" Height="137" Width="503" Grid.ColumnSpan="2" CurrentCellChanged="PatientDocumentsDataGrid_CurrentCellChanged" SelectionChanged="PatientDocumentsDataGrid_SelectionChanged"/>
+        <Label x:Name="label9" Content="Patient Documents" HorizontalAlignment="Left" Margin="616,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="AddDocumentToPatientButton" Content="ADD" HorizontalAlignment="Left" Margin="754,52,0,0" VerticalAlignment="Top" Width="74" Click="AddDocumentToPatientButton_Click"/>
+        <Button x:Name="DeleteDocumentButton" Content="DELETE DOCUMENT" HorizontalAlignment="Left" Margin="894,53,0,0" VerticalAlignment="Top" Width="112" Click="DeleteDocumentButton_Click"/>
     </Grid>
 </Controls:MetroWindow>

@@ -12,7 +12,7 @@
     <Grid>
         <TextBox x:Name="CategoryTextBox" HorizontalAlignment="Left" Height="23" Margin="0,23,-3,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
         <Label x:Name="label" Content="Enter a new category" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="SubmitButton" Content="SUBMIT" HorizontalAlignment="Left" Margin="0,54,-3,0" VerticalAlignment="Top" Width="132" Height="29" Click="SubmitButton_Click"/>
+        <Button x:Name="SubmitButton" Content="SUBMIT" HorizontalAlignment="Left" Margin="0,54,-3,0" VerticalAlignment="Top" Width="132" Height="29" Click="SubmitButton_Click" Background="#FF15B89A"/>
 
     </Grid>
 </Controls:MetroWindow>

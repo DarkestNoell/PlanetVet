@@ -31,15 +31,17 @@ namespace Capstone
         public virtual DbSet<ChangeLog> ChangeLogs { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Diagnosis> Diagnoses { get; set; }
-        public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<EmployeeChanx> EmployeeChanges { get; set; }
+        public virtual DbSet<EmployeeLunchLog> EmployeeLunchLogs { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<EmployeeWorkHourLog> EmployeeWorkHourLogs { get; set; }
         public virtual DbSet<ExamRoom> ExamRooms { get; set; }
         public virtual DbSet<InventoryItem> InventoryItems { get; set; }
         public virtual DbSet<InventoryItemsCategory> InventoryItemsCategories { get; set; }
         public virtual DbSet<InventoryLog> InventoryLogs { get; set; }
         public virtual DbSet<Kennel> Kennels { get; set; }
         public virtual DbSet<OfficeHour> OfficeHours { get; set; }
+        public virtual DbSet<PatientDocument> PatientDocuments { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Procedure> Procedures { get; set; }
         public virtual DbSet<ProcedureCategory> ProcedureCategories { get; set; }
@@ -47,5 +49,6 @@ namespace Capstone
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Species> Species { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserSession> UserSessions { get; set; }
     }
 }

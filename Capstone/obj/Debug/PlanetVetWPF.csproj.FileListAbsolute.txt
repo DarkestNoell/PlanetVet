@@ -74,6 +74,13 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.Pr
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csproj.GenerateResource.Cache
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.exe
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Capstone.pdb
-C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\PlanetVetWPF.csprojResolveAssemblyReference.cache
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EncryptionTestingWindow.g.cs
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EncryptionTestingWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddDocumentToPatientWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\AddDocumentToPatientWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\RegisterNewUserWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\RegisterNewUserWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\ClockInOutWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeManagementWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\ClockInOutWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeManagementWindow.baml

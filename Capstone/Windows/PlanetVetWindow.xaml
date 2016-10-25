@@ -9,11 +9,15 @@
         Title="Planet Vet Dashboard" Height="500" Width="737"
         Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
     <Grid HorizontalAlignment="Left" Height="467" VerticalAlignment="Top" Width="790">
-        <Button x:Name="Appointments" Content="Appointments&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Click="button_Click"/>
+        <Button x:Name="Appointments" Content="Appointments&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Click="button_Click" Margin="0,155,0,0"/>
         <Button x:Name="AddNewClientButton" Content="ADD NEW CLIENT&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="184,0,0,0" Click="AddNewClientButton_Click"/>
         <Button x:Name="ClientSearchButton" Content="CLIENT SEARCH&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="368,0,0,0" Click="ClientSearchButton_Click"/>
         <Button x:Name="InventoryButton" Content="Inventory&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="552,0,0,0" Click="InventoryButton_Click"/>
-        <Button x:Name="ReconfigureBusinessHoursWindow" Content="Reconfigure Business Hours" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="0,162,0,0" Click="ReconfigureBusinessHoursWindow_Click"/>
+        <Button x:Name="ReconfigureBusinessHoursWindow" Content="Reconfigure Business Hours" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="0,317,0,-12" Click="ReconfigureBusinessHoursWindow_Click"/>
+        <Button x:Name="AddNewUserButton" Content="ADD NEW USER" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="184,317,0,-12" Click="AddNewUserButton_Click"/>
+        <Button x:Name="LogoutButton" Content="LOGOUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="552,317,0,-12" Click="LogoutButton_Click"/>
+        <Button x:Name="EmployeeManagementButton" Content="EMPLOYEE MANAGEMENT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Margin="368,317,0,-12" Click="EmployeeManagementButton_Click"/>
+        <Button x:Name="ClockInOutButton" Content="CLOCK IN/OUT&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Height="162" Click="ClockInOutButton_Click"/>
     </Grid>
 
     <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces 

@@ -1,0 +1,32 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.RegisterNewUserWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Register" Height="245.519" Width="369.419"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="23,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="215,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" Height="23" Margin="23,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="215,69,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="RegisterButton" Content="REGISTER" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="361" Click="RegisterButton_Click"/>
+        <Label x:Name="label" Content="First Name" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Last Name" HorizontalAlignment="Left" Margin="215,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Username" HorizontalAlignment="Left" Margin="23,48,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy" Content="Password" HorizontalAlignment="Left" Margin="215,48,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PositionComboBox" HorizontalAlignment="Left" Margin="23,118,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PositionComboBox_SelectionChanged">
+            <ComboBoxItem Content="DVM" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Technician" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Receptionist" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="New Role" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label x:Name="label1_Copy1" Content="Position" HorizontalAlignment="Left" Margin="23,95,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="FullTimeCheckBox" Content="Full Time" HorizontalAlignment="Left" Margin="215,125,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Controls:MetroWindow>

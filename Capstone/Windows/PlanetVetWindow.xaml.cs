@@ -1,4 +1,5 @@
-﻿using Capstone.Windows;
+﻿using Capstone.Authentication;
+using Capstone.Windows;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,47 @@ namespace Capstone
             pve.SaveChanges();
             SelectWorkDaysWindow swdw = new SelectWorkDaysWindow();
             swdw.Show();
+            this.Close();
+        }
+
+        private void AddNewUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterNewUserWindow rnuw = new RegisterNewUserWindow();
+            rnuw.ShowDialog();
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PlanetVetEntities pve = new PlanetVetEntities();
+                Employee em = pve.Employees.Where(emp => emp.Username.Equals(SessionData.CurrentUser.UserName)).FirstOrDefault();
+                UserSession us = pve.UserSessions.Where(usersesh => usersesh.EmployeeID == em.EmployeeId && usersesh.SessionEnd == null).FirstOrDefault();
+                pve.UserSessions.Attach(us);
+                us.SessionEnd = DateTime.Now;
+                pve.Entry(us).State = System.Data.Entity.EntityState.Modified;
+                pve.SaveChanges();
+                SessionData.CurrentUser = null;
+
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void EmployeeManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClockInOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClockInOutWindow ciow = new ClockInOutWindow();
+            ciow.Show();
             this.Close();
         }
     }

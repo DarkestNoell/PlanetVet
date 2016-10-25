@@ -83,15 +83,6 @@
     <Property Name="Diagnosis_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="ProcedureID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Document">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PatientID" Type="Int32" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="EmployeeChanx">
     <Key>
       <PropertyRef Name="Id" />
@@ -101,6 +92,16 @@
     <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="EmployeeInitials" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmployeeLunchLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LunchStart" Type="DateTime" Precision="7" />
+    <Property Name="LunchEnd" Type="DateTime" Precision="7" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -112,6 +113,22 @@
     <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="AccessLevel" Type="Int32" />
     <Property Name="IsDoctor" Type="Boolean" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsFullTime" Type="Boolean" />
+    <Property Name="IsWorking" Type="Boolean" Nullable="false" />
+    <Property Name="IsOnLunchBreak" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeWorkHourLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Clock_In" Type="DateTime" Precision="7" />
+    <Property Name="Clock_Out" Type="DateTime" Precision="7" />
+    <Property Name="LunchStart" Type="DateTime" Precision="7" />
+    <Property Name="LunchEnd" Type="DateTime" Precision="7" />
   </EntityType>
   <EntityType Name="ExamRoom">
     <Key>
@@ -173,6 +190,17 @@
     <Property Name="LunchEnd" Type="DateTime" Precision="7" />
     <Property Name="TentativeWorkingDay" Type="Boolean" Nullable="false" />
     <Property Name="TentativeLunchHours" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatientDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="DocumentCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="7" />
   </EntityType>
   <EntityType Name="Patient">
     <Key>
@@ -251,9 +279,19 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Password_Encrypted_" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="AccessLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SessionStart" Type="DateTime" Precision="7" />
+    <Property Name="SessionEnd" Type="DateTime" Precision="7" />
   </EntityType>
   <EntityContainer Name="PlanetVetEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Appointments" EntityType="Self.Appointment" />
@@ -262,15 +300,17 @@
     <EntitySet Name="ChangeLogs" EntityType="Self.ChangeLog" />
     <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="Diagnoses" EntityType="Self.Diagnosis" />
-    <EntitySet Name="Documents" EntityType="Self.Document" />
     <EntitySet Name="EmployeeChanges" EntityType="Self.EmployeeChanx" />
+    <EntitySet Name="EmployeeLunchLogs" EntityType="Self.EmployeeLunchLog" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeeWorkHourLogs" EntityType="Self.EmployeeWorkHourLog" />
     <EntitySet Name="ExamRooms" EntityType="Self.ExamRoom" />
     <EntitySet Name="InventoryItems" EntityType="Self.InventoryItem" />
     <EntitySet Name="InventoryItemsCategories" EntityType="Self.InventoryItemsCategory" />
     <EntitySet Name="InventoryLogs" EntityType="Self.InventoryLog" />
     <EntitySet Name="Kennels" EntityType="Self.Kennel" />
     <EntitySet Name="OfficeHours" EntityType="Self.OfficeHour" />
+    <EntitySet Name="PatientDocuments" EntityType="Self.PatientDocument" />
     <EntitySet Name="Patients" EntityType="Self.Patient" />
     <EntitySet Name="Procedures" EntityType="Self.Procedure" />
     <EntitySet Name="ProcedureCategories" EntityType="Self.ProcedureCategory" />
@@ -278,5 +318,6 @@
     <EntitySet Name="Services" EntityType="Self.Service" />
     <EntitySet Name="Species" EntityType="Self.Species" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserSessions" EntityType="Self.UserSession" />
   </EntityContainer>
 </Schema>

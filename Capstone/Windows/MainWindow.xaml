@@ -45,7 +45,7 @@
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="82,161,0,0" VerticalAlignment="Top" Width="292" Password="password" MouseEnter="passwordBox_MouseEnter" MouseLeave="passwordBox_MouseLeave"/>
         <CheckBox x:Name="KeepMeLoggedInCheckBox" Content="Keep me logged in" HorizontalAlignment="Left" Margin="82,192,0,0" VerticalAlignment="Top" Background="#FF61FFA9"/>
         <Button x:Name="cantLoginButton" Content="Can't log in?" HorizontalAlignment="Left" Margin="250,220,0,0" VerticalAlignment="Top" Width="124" BorderThickness="2" FontFamily="Microsoft YaHei" Click="loginButton_Click" Height="25" Background="#FF93FFB6" BorderBrush="#FF8C73FF"/>
-        <Button x:Name="createAccountButton" Content="Create a new employee account" HorizontalAlignment="Left" Margin="82,265,0,0" VerticalAlignment="Top" Width="292" BorderThickness="2" FontFamily="Microsoft YaHei" Click="loginButton_Click" Height="25" Background="#FFF2FF9C" BorderBrush="#FF322E2E"/>
+        <Button x:Name="createAccountButton" Content="Create a new employee account" HorizontalAlignment="Left" Margin="82,265,0,0" VerticalAlignment="Top" Width="292" BorderThickness="2" FontFamily="Microsoft YaHei" Height="25" Background="#FFF2FF9C" BorderBrush="#FF322E2E" Click="createAccountButton_Click"/>
         <Separator HorizontalAlignment="Left" Height="21" Margin="-5,245,-11,0" VerticalAlignment="Top" Width="451" Grid.ColumnSpan="3"/>
 
 

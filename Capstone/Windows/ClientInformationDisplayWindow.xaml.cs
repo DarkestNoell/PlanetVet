@@ -25,17 +25,23 @@ namespace Capstone.Windows
     public partial class ClientInformationDisplayWindow : MetroWindow
     {
         private Client SelectedClient { get; set; }
+        private Patient SelectedPatient { get; set; }
 
         public ClientInformationDisplayWindow()
         {
             InitializeComponent();
+            DeActivateButtons();
+        }
+
+        private void DeActivateButtons()
+        {
             UploadImageButton.IsEnabled = false;
             AddProcedureButton.IsEnabled = false;
             DeleteProcedureButton.IsEnabled = false;
             UploadImageButton.IsEnabled = false;
             SaveClientChanges.IsEnabled = false;
+            AddDocumentToPatientButton.IsEnabled = false;
         }
-
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
@@ -209,6 +215,8 @@ namespace Capstone.Windows
                 DeleteProcedureButton.IsEnabled = true;
                 UploadImageButton.IsEnabled = true;
                 SaveClientChanges.IsEnabled = true;
+                AddDocumentToPatientButton.IsEnabled = true;
+                AddDocumentToPatientWindow.SelectedPatient = p;
                 //Get list of procedures for patient
                 PlanetVetEntities pve = new PlanetVetEntities();
                 List<Procedure> ProceduresDoneOnPatient = pve.Procedures.Where(pr => pr.PatientID == p.PatientID).ToList();
@@ -231,7 +239,12 @@ namespace Capstone.Windows
 
                 UploadImageButton.IsEnabled = true;
 
-                
+                //Documents attached to patient
+                List<PatientDocument> DocumentsPerPatient = pve.PatientDocuments.Where(doc => doc.PatientID == p.PatientID).ToList();
+                PatientDocumentsDataGrid.ItemsSource = DocumentsPerPatient;
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[2]);
 
                 if (p.Image == null)
                 {
@@ -498,6 +511,23 @@ namespace Capstone.Windows
 
         }
 
+        private void PatientDocumentsDataGrid_CurrentCellChanged(object sender, EventArgs e)
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+            try
+            {
+                PatientDocument D = (PatientDocument)PatientDocumentsDataGrid.SelectedItem;
+                pve.PatientDocuments.Attach(D);
+                pve.Entry(D).State = System.Data.Entity.EntityState.Modified;
+                pve.SaveChanges();
+            }
+            catch
+            {
+
+            }
+
+        }
+
         private void ItemsUsedDataGrid_CurrentCellChanged(object sender, EventArgs e)
         {
             PlanetVetEntities pve = new PlanetVetEntities();
@@ -607,6 +637,8 @@ namespace Capstone.Windows
                 Patient Pat = (Patient)PatientsDataGrid.SelectedItem;
                 AddProcedureWindow.SelectedPatient = Pat;
 
+                SelectedPatient = Pat;
+
                 BalanceDueTextBox.Text = SelectedClient.BalanceDue.ToString();
 
 
@@ -703,5 +735,66 @@ namespace Capstone.Windows
 
             }
             }
+
+        private void AddDocumentToPatientButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AddDocumentToPatientWindow adtpw = new AddDocumentToPatientWindow();
+                adtpw.ShowDialog();
+
+                Patient Pat = (Patient)PatientsDataGrid.SelectedItem;
+
+                PlanetVetEntities pve = new PlanetVetEntities();
+                List<PatientDocument> DocumentsPerPatient = pve.PatientDocuments.Where(doc => doc.PatientID == Pat.PatientID).ToList();
+                PatientDocumentsDataGrid.ItemsSource = DocumentsPerPatient;
+
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[2]);
+            }
+            catch
+            {
+
+            }
+            }
+
+        private void DeleteDocumentButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PlanetVetEntities pve = new PlanetVetEntities();
+                PatientDocument D = (PatientDocument)PatientDocumentsDataGrid.SelectedItem;
+                pve.PatientDocuments.Attach(D);
+                pve.PatientDocuments.Remove(D);
+                pve.SaveChanges();
+
+                Patient Pat = (Patient)PatientsDataGrid.SelectedItem;
+                List<PatientDocument> DocumentsPerPatient = pve.PatientDocuments.Where(doc => doc.PatientID == Pat.PatientID).ToList();
+                PatientDocumentsDataGrid.ItemsSource = DocumentsPerPatient;
+
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[0]);
+                PatientDocumentsDataGrid.Columns.Remove(PatientDocumentsDataGrid.Columns[2]);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void PatientDocumentsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                PatientDocument pd = (PatientDocument)PatientDocumentsDataGrid.SelectedItem;
+                String Path = pd.Path;
+                System.Diagnostics.Process.Start(Path);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

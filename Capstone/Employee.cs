@@ -20,5 +20,9 @@ namespace Capstone
         public string Position { get; set; }
         public Nullable<int> AccessLevel { get; set; }
         public bool IsDoctor { get; set; }
+        public string Username { get; set; }
+        public Nullable<bool> IsFullTime { get; set; }
+        public bool IsWorking { get; set; }
+        public bool IsOnLunchBreak { get; set; }
     }
 }
