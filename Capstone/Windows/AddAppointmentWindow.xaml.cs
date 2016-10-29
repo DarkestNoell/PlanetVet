@@ -133,6 +133,10 @@ namespace Capstone.Windows
 
             pve.Appointments.Add(a);
             pve.SaveChanges();
+
+            PlanetVetWindow pvw = new PlanetVetWindow();
+            pvw.Show();
+            this.Close();
         }
     }
     }

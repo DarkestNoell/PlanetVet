@@ -41,35 +41,39 @@ namespace Capstone
 
         private void ScheduleButton_Click(object sender, RoutedEventArgs e)
         {
-
-            if (ProcedureLengthHrsTextBox.Text.Equals("") && ProcedureLengthMinutesTextBox.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Please supply an appointment length!");
+                if (ProcedureLengthHrsTextBox.Text.Equals("") && ProcedureLengthMinutesTextBox.Text.Equals(""))
+                {
+                    MessageBox.Show("Please supply an appointment length!");
+                }
+                else
+                {
+                    int MinutesNeeded = 0;
+                    if (!ProcedureLengthHrsTextBox.Text.Equals(""))
+                    {
+                        int num = int.Parse(ProcedureLengthHrsTextBox.Text);
+                        num *= 60;
+                        MinutesNeeded += num;
+                    }
+                    else if (!ProcedureLengthMinutesTextBox.Text.Equals(""))
+                    {
+                        MinutesNeeded += int.Parse(ProcedureLengthMinutesTextBox.Text);
+                    }
+
+
+                    AppointmentSchedulingWindow.SelectedDate = AppointmentSelectDatePicker.SelectedDate.Value;
+                    AppointmentSchedulingWindow.MinutesForAppointment = MinutesNeeded;
+
+                    AppointmentSchedulingWindow asw = new AppointmentSchedulingWindow();
+                    asw.Show();
+                    this.Close();
+                }
             }
-            else
+            catch
             {
-                int MinutesNeeded = 0;
-                if (!ProcedureLengthHrsTextBox.Text.Equals(""))
-                {
-                    int num = int.Parse(ProcedureLengthHrsTextBox.Text);
-                    num *= 60;
-                    MinutesNeeded += num;
-                }
-                else if (!ProcedureLengthMinutesTextBox.Text.Equals(""))
-                {
-                    MinutesNeeded += int.Parse(ProcedureLengthMinutesTextBox.Text);
-                }
-
-                
-                AppointmentSchedulingWindow.SelectedDate = AppointmentSelectDatePicker.SelectedDate.Value;
-                AppointmentSchedulingWindow.MinutesForAppointment = MinutesNeeded;
-
-                AppointmentSchedulingWindow asw = new AppointmentSchedulingWindow();
-                asw.Show();
-                this.Close();
+                MessageBox.Show("Please provide an appointment length, then select a date.");
             }
-
-            
         }
 
         private bool DayBooked(DateTime dayToCheck, int timeNeededForAppoinment)
@@ -94,78 +98,119 @@ namespace Capstone
                 {
                     if (NewAppointmentEnd > DayEnds)
                     {
+                        DayBooked = true;
                         break;
                     }
-                    else
-                    {
+
                         //All appointments between scheduled time
                         //If the result returns null, an appointment can be scheduled
                         //if results are returned, proceed on
-                        Appointment a = pve.Appointments.Where(app => app.TimeStart <= TimeSlot && app.TimeEnd > NewAppointmentEnd).FirstOrDefault();
-                        if (a == null)
+                        //Appointment ApptsBetween = pve.Appointments.Where(app => app.TimeStart <= TimeSlot && app.TimeEnd > NewAppointmentEnd).ToList();
+
+                    //Appointments Between start/end
+
+                    //Appt we are trying to schedule is:
+                       
+                        List<Appointment> AppointmentsOverlapping = pve.Appointments.Where(app => app.TimeStart <= TimeSlot && TimeSlot < app.TimeEnd).ToList();
+                        List<Appointment> AppointmentsOverlappingWithEndTimeList = pve.Appointments.Where(app => app.TimeStart <= NewAppointmentEnd
+                      && NewAppointmentEnd < app.TimeEnd).ToList();
+                        if(AppointmentsOverlapping.Count != pve.ExamRooms.ToList().Count && AppointmentsOverlappingWithEndTimeList.Count != pve.ExamRooms.ToList().Count)
                         {
-                            DayBooked = false;
-                            break;
-                        }
-                        else
+                                 DayBooked = false;
+                                 break;
+                    
+                        }else
                         {
-                            TimeSlot = TimeSlot.AddMinutes(1);
-                            NewAppointmentEnd.AddMinutes(1);
+                            TimeSlot = TimeSlot.AddMinutes(10);
+                            NewAppointmentEnd = NewAppointmentEnd.AddMinutes(10);
+
+                            
                         }
-                    }
                 }
             }
             return DayBooked;
         }
 
+        private Boolean CanScheduleAppointmentOnXDay(DateTime PotentialSchedulingDay, int MinutesNeededForAppt)
+        {
+
+            return false;
+        }
+
         private void AppointmentSelectDatePicker_CalendarOpened(object sender, RoutedEventArgs e)
         {
-            AppointmentSelectDatePicker.DisplayDateStart = DateTime.Now.AddYears(-1);
-            AppointmentSelectDatePicker.DisplayDateEnd = DateTime.Now + TimeSpan.FromDays(500);
-            AppointmentSelectDatePicker.IsTodayHighlighted = true;
-            
-            var minDate = AppointmentSelectDatePicker.DisplayDateStart ?? DateTime.MinValue;
-            var maxDate = AppointmentSelectDatePicker.DisplayDateEnd ?? DateTime.MaxValue;
-
-            PlanetVetEntities pve = new PlanetVetEntities();
-
-            foreach(OfficeHour oh in pve.OfficeHours)
+            AppointmentSelectDatePicker.BlackoutDates.Clear();
+            if (ProcedureLengthHrsTextBox.Text.Equals("") && ProcedureLengthMinutesTextBox.Text.Equals(""))
             {
-                DaysOpened.Add(oh.DayName);
+                MessageBox.Show("Please provide an appointment length");
             }
-
-            for (var d = minDate; d <= maxDate && DateTime.MaxValue > d; d = d.AddDays(1))
+            else
             {
-                if (!(DaysOpened.Contains(d.DayOfWeek.ToString())))
+                int MinutesNeeded = 0;
+                if (!ProcedureLengthHrsTextBox.Text.Equals(""))
                 {
-                    AppointmentSelectDatePicker.BlackoutDates.Add(new CalendarDateRange(d));
-                }else
-                {
-
+                    int num = int.Parse(ProcedureLengthHrsTextBox.Text);
+                    num *= 60;
+                    MinutesNeeded += num;
                 }
-            }
+                else if (!ProcedureLengthMinutesTextBox.Text.Equals(""))
+                {
+                    MinutesNeeded += int.Parse(ProcedureLengthMinutesTextBox.Text);
+                }
 
-            if(NewAppointment)
-            {
+                //Received minutes needed for appointment
+                //Now correlate this with appointments on X day
+
+                AppointmentSelectDatePicker.DisplayDateStart = DateTime.Now;
+                //.AddYears(-1);
+                AppointmentSelectDatePicker.DisplayDateEnd = DateTime.Now + TimeSpan.FromDays(500);
+                AppointmentSelectDatePicker.IsTodayHighlighted = true;
+
+                var minDate = AppointmentSelectDatePicker.DisplayDateStart ?? DateTime.MinValue;
+                var maxDate = AppointmentSelectDatePicker.DisplayDateEnd ?? DateTime.MaxValue;
+
+                PlanetVetEntities pve = new PlanetVetEntities();
+
+                foreach (OfficeHour oh in pve.OfficeHours)
+                {
+                    DaysOpened.Add(oh.DayName);
+                }
+
                 for (var d = minDate; d <= maxDate && DateTime.MaxValue > d; d = d.AddDays(1))
                 {
                     if (!(DaysOpened.Contains(d.DayOfWeek.ToString())))
                     {
                         AppointmentSelectDatePicker.BlackoutDates.Add(new CalendarDateRange(d));
-                    }else if(DayBooked(d, 10))
+                    }
+                    else
                     {
-                        AppointmentSelectDatePicker.BlackoutDates.Add(new CalendarDateRange(d));
+
                     }
                 }
+
+                if (NewAppointment)
+                {
+                    for (var d = minDate; d <= maxDate && DateTime.MaxValue > d; d = d.AddDays(1))
+                    {
+                        if (!(DaysOpened.Contains(d.DayOfWeek.ToString())))
+                        {
+                            AppointmentSelectDatePicker.BlackoutDates.Add(new CalendarDateRange(d));
+                        }
+                        else if (DayBooked(d, MinutesNeeded))
+                        {
+                            AppointmentSelectDatePicker.BlackoutDates.Add(new CalendarDateRange(d));
+                        }
+                    }
+                }
+                else if (MoveAppointment)
+                {
+
+                }
+                else if (CancelAppointment)
+                {
+
+                }
             }
-            else if(MoveAppointment)
-            {
-
-            }else if(CancelAppointment)
-            {
-
-            }
-
         }
     }
 }

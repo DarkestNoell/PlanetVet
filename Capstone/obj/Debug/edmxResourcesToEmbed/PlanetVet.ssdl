@@ -13,6 +13,7 @@
     <Property Name="ProcedureTime" Type="int" Nullable="false" />
     <Property Name="DoctorID" Type="int" Nullable="false" />
     <Property Name="Doctor" Type="varchar(max)" Nullable="false" />
+    <Property Name="ExamRoomNumber" Type="int" />
   </EntityType>
   <EntityType Name="AppointmentSlots">
     <Key>

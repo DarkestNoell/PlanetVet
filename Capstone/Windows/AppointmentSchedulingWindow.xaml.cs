@@ -27,53 +27,46 @@ namespace Capstone.Windows
 
         private void WorkOnWindow()
         {
-            //List<DateTime> AvailableAppointmentTimes = new List<DateTime>();
-            //OfficeHour StartOfDay = pve.OfficeHours.Where(day => day.DayName.Equals(SelectedDate.DayOfWeek)).FirstOrDefault();
-            //MessageBox.Show(StartOfDay.DayStart.ToShortTimeString());
-            //MessageBox.Show("sdjklfjlsjflks");
-
-            //SelectedDate Starts at 12A.M.
-            //PlanetVetEntities pve = new PlanetVetEntities();
-            PlanetVetEntities pve = new PlanetVetEntities();
-            OfficeHour Day = pve.OfficeHours.Where(day => day.DayName.Equals(SelectedDate.DayOfWeek.ToString())).FirstOrDefault();
-            ////Start of given work day
-            DateTime AppointmentStart = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Day, Day.DayStart.Hour, Day.DayStart.Minute, 0);
-            DateTime AppointmentEnd = AppointmentStart.AddMinutes(MinutesForAppointment);
             SelectedDateLabel.Content = SelectedDate.ToShortDateString();
-            //SelectedDate.ToShortDateString();
+            
+            PlanetVetEntities pve = new PlanetVetEntities();
+            List<DateTime> DatesAvailable = new List<DateTime>();
+            //Correlate the date with appointments
+            OfficeHour oh = pve.OfficeHours.Where(officehour => officehour.DayName.Contains(SelectedDate.DayOfWeek.ToString())).First();
+            //OH Contains the start and ending hours of the business day
 
-            List<Appointment> AppointmentsForThisDay = pve.Appointments.Where(app => app.TimeStart.Year == SelectedDate.Year &&
-                                                                              app.TimeStart.Month == SelectedDate.Month &&
-                                                                              app.TimeStart.Day == SelectedDate.Day).ToList();
+            DateTime DayEnds = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Day, oh.DayEnd.Hour, oh.DayEnd.Minute, 0);
 
-            DateTime StartOfDay = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Date.Day, Day.DayStart.Hour, Day.DayStart.Minute, 0);
-            DateTime EndOfDay = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Date.Day, Day.DayEnd.Hour, Day.DayEnd.Minute, 0);
-            //SelectedDateLabel.Content = SelectedDate.ToShortDateString();
+            //Loop through all minutes of the day
+            DateTime TimeSlot = new DateTime(SelectedDate.Year, SelectedDate.Month, SelectedDate.Day, oh.DayStart.Hour, oh.DayStart.Minute, 0);
+            DateTime NewAppointmentEnd = new DateTime(TimeSlot.Year, TimeSlot.Month, TimeSlot.Day, TimeSlot.Hour, TimeSlot.Minute, 0);
+            NewAppointmentEnd = NewAppointmentEnd.AddMinutes(MinutesForAppointment);
 
-            List<DateTime> AvailableAppointmentTimes = new List<DateTime>();
-            Boolean CanAdd = true;
-
-            while ((AppointmentEnd <= EndOfDay))
+            while (TimeSlot != DayEnds)
             {
-                CanAdd = true;
-                foreach (Appointment a in AppointmentsForThisDay)
+                if (NewAppointmentEnd > DayEnds)
                 {
-                    if (a.TimeStart <= AppointmentStart && a.TimeEnd >= AppointmentEnd)
-                    {
-                        CanAdd = false;
-                    }
+                    break;
                 }
-
-                if (CanAdd)
+                List<Appointment> AppointmentsOverlapping = pve.Appointments.Where(app => app.TimeStart <= TimeSlot && TimeSlot < app.TimeEnd).ToList();
+                List<Appointment> AppointmentsOverlappingWithEndTimeList = pve.Appointments.Where(app => app.TimeStart <= NewAppointmentEnd
+              && NewAppointmentEnd < app.TimeEnd).ToList();
+                if (AppointmentsOverlapping.Count != pve.ExamRooms.ToList().Count && AppointmentsOverlappingWithEndTimeList.Count != pve.ExamRooms.ToList().Count)
                 {
-                    AvailableAppointmentTimes.Add(AppointmentStart);
+                    DatesAvailable.Add(TimeSlot);
+                    TimeSlot = TimeSlot.AddMinutes(10);
+                    NewAppointmentEnd = NewAppointmentEnd.AddMinutes(10);
                 }
-
-                AppointmentStart = AppointmentStart.AddMinutes(10);
-                AppointmentEnd = AppointmentEnd.AddMinutes(10);
+                else
+                {
+                    TimeSlot = TimeSlot.AddMinutes(10);
+                    NewAppointmentEnd = NewAppointmentEnd.AddMinutes(10);
+                }
             }
-            AppointmentListBox.ItemsSource = AvailableAppointmentTimes;
+
+            AppointmentListBox.ItemsSource = DatesAvailable;
         }
+            
       
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
@@ -82,6 +75,15 @@ namespace Capstone.Windows
             aaw.SelectedDate = SelectedDate;
             aaw.Show();
             this.Close();
+        }
+
+        private Boolean AllExamRoomsBooked(List<Appointment> AppointmentsForThisDayList)
+        {
+            PlanetVetEntities pve = new PlanetVetEntities();
+            int NumberOfExamRooms = pve.ExamRooms.ToList().Count;
+
+            
+            return false;
         }
 
         private void AppointmentSlotsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

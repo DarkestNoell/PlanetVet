@@ -290,10 +290,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EncryptionTestingWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\InventoryInformationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -326,9 +322,6 @@
     </Compile>
     <Compile Include="Windows\EmployeeManagementWindow.xaml.cs">
       <DependentUpon>EmployeeManagementWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\EncryptionTestingWindow.xaml.cs">
-      <DependentUpon>EncryptionTestingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\InventoryInformationWindow.xaml.cs">
       <DependentUpon>InventoryInformationWindow.xaml</DependentUpon>

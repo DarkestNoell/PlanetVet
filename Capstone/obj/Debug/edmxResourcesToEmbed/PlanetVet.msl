@@ -13,6 +13,7 @@
           <ScalarProperty Name="ProcedureTime" ColumnName="ProcedureTime" />
           <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
           <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+          <ScalarProperty Name="ExamRoomNumber" ColumnName="ExamRoomNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

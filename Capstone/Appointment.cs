@@ -23,5 +23,6 @@ namespace Capstone
         public int ProcedureTime { get; set; }
         public int DoctorID { get; set; }
         public string Doctor { get; set; }
+        public Nullable<int> ExamRoomNumber { get; set; }
     }
 }
