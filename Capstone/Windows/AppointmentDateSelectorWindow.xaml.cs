@@ -123,18 +123,10 @@ namespace Capstone
                         {
                             TimeSlot = TimeSlot.AddMinutes(10);
                             NewAppointmentEnd = NewAppointmentEnd.AddMinutes(10);
-
-                            
                         }
                 }
             }
             return DayBooked;
-        }
-
-        private Boolean CanScheduleAppointmentOnXDay(DateTime PotentialSchedulingDay, int MinutesNeededForAppt)
-        {
-
-            return false;
         }
 
         private void AppointmentSelectDatePicker_CalendarOpened(object sender, RoutedEventArgs e)
@@ -161,8 +153,7 @@ namespace Capstone
                 //Received minutes needed for appointment
                 //Now correlate this with appointments on X day
 
-                AppointmentSelectDatePicker.DisplayDateStart = DateTime.Now;
-                //.AddYears(-1);
+                AppointmentSelectDatePicker.DisplayDateStart = DateTime.Now.AddYears(-1); ;
                 AppointmentSelectDatePicker.DisplayDateEnd = DateTime.Now + TimeSpan.FromDays(500);
                 AppointmentSelectDatePicker.IsTodayHighlighted = true;
 

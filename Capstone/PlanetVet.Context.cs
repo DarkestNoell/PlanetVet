@@ -34,6 +34,7 @@ namespace Capstone
         public virtual DbSet<EmployeeChanx> EmployeeChanges { get; set; }
         public virtual DbSet<EmployeeLunchLog> EmployeeLunchLogs { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<EmployeeSchedule> EmployeeSchedules { get; set; }
         public virtual DbSet<EmployeeWorkHourLog> EmployeeWorkHourLogs { get; set; }
         public virtual DbSet<ExamRoom> ExamRooms { get; set; }
         public virtual DbSet<InventoryItem> InventoryItems { get; set; }

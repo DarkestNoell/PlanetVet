@@ -23,7 +23,6 @@ namespace Capstone
         public MainWindow()
         {
             InitializeComponent();
-            AuthenticateUser();
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -85,14 +84,5 @@ namespace Capstone
 
         }
 
-        private void AuthenticateUser()
-        {
-            if (!Thread.CurrentPrincipal.Identity.IsAuthenticated ||
-            !Thread.CurrentPrincipal.IsInRole("ad.austinfouty.com\\Capstone-Employee"))
-            {
-                MessageBox.Show("Sorry, you do not have access to the application", "Access Denied");
-                Application.Current.Shutdown();
-            }
-        }
     }
 }

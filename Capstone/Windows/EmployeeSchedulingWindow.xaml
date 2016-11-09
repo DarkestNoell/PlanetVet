@@ -1,0 +1,45 @@
+﻿<Controls:MetroWindow x:Class="Capstone.Windows.EmployeeSchedulingWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Capstone"
+        mc:Ignorable="d"
+        Title="Appointment Menu" Height="409.213" Width="875.491"
+        Icon="https://s32.postimg.org/tjsb6eoqd/Planet_Vet_Logo.png">
+    <Grid>
+        <DatePicker x:Name="DatePickerCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="94" Width="344" Margin="0,34,0,0" CalendarOpened="DatePickerCalendar_CalendarOpened" SelectedDateChanged="DatePickerCalendar_SelectedDateChanged"/>
+        <Label x:Name="label" Content="Select a date for the week you'd like to schedule employees for" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,8,0,0"/>
+        <DataGrid x:Name="MondayDataGrid" HorizontalAlignment="Left" Margin="0,154,0,0" VerticalAlignment="Top" Height="104" Width="268" CurrentCellChanged="MondayDataGrid_CurrentCellChanged" />
+        <DataGrid x:Name="TuesdayDataGrid" HorizontalAlignment="Left" Margin="307,154,0,0" VerticalAlignment="Top" Height="104" Width="268" CurrentCellChanged="TuesdayDataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="ThursdayDataGrid" HorizontalAlignment="Left" Margin="0,294,0,0" VerticalAlignment="Top" Height="85" Width="268" CurrentCellChanged="ThursdayDataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="FridayDataGrid" HorizontalAlignment="Left" Margin="287,294,0,0" VerticalAlignment="Top" Height="85" Width="268" CurrentCellChanged="FridayDataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="WednesdayDataGrid" HorizontalAlignment="Left" Margin="580,154,0,0" VerticalAlignment="Top" Height="104" Width="268" CurrentCellChanged="WednesdayDataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="SaturdayDataGrid" HorizontalAlignment="Left" Margin="580,294,0,0" VerticalAlignment="Top" Height="85" Width="268" CurrentCellChanged="SaturdayDataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="SundayDataGrid" HorizontalAlignment="Left" Margin="391,31,0,0" VerticalAlignment="Top" Height="97" Width="476" RenderTransformOrigin="0.5,0.642" CurrentCellChanged="SundayDataGrid_CurrentCellChanged"/>
+        <Label x:Name="label1" Content="Sunday" HorizontalAlignment="Left" Margin="391,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy" Content="Monday" HorizontalAlignment="Left" Margin="0,128,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="Tuesday" HorizontalAlignment="Left" Margin="287,128,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Wednesday" HorizontalAlignment="Left" Margin="580,126,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy3" Content="Thursday" HorizontalAlignment="Left" Margin="0,263,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy4" Content="Friday" HorizontalAlignment="Left" Margin="287,263,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy5" Content="Saturday" HorizontalAlignment="Left" Margin="580,263,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SundayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="445,1,0,0" VerticalAlignment="Top" Width="75" Click="SundayAddButton_Click"/>
+        <Button x:Name="SundayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="561,1,0,0" VerticalAlignment="Top" Width="75" Click="SundayDeleteButton_Click"/>
+        <Button x:Name="MondayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="55,128,0,0" VerticalAlignment="Top" Width="75" Click="MondayAddButton_Click"/>
+        <Button x:Name="MondayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="171,128,0,0" VerticalAlignment="Top" Width="75" Click="MondayDeleteButton_Click"/>
+        <Button x:Name="TuesdayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="353,128,0,0" VerticalAlignment="Top" Width="75" Click="TuesdayAddButton_Click"/>
+        <Button x:Name="TuesdayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="469,128,0,0" VerticalAlignment="Top" Width="75" Click="TuesdayDeleteButton_Click"/>
+        <Button x:Name="WednesdayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="666,128,0,0" VerticalAlignment="Top" Width="75" Click="WednesdayAddButton_Click"/>
+        <Button x:Name="WednesdayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="782,128,0,0" VerticalAlignment="Top" Width="75" Click="WednesdayDeleteButton_Click"/>
+        <Button x:Name="ThursdayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="65,263,0,0" VerticalAlignment="Top" Width="75" Click="ThursdayAddButton_Click"/>
+        <Button x:Name="ThursdayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="181,263,0,0" VerticalAlignment="Top" Width="75" Click="ThursdayDeleteButton_Click"/>
+        <Button x:Name="FridayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="344,264,0,0" VerticalAlignment="Top" Width="75" Click="FridayAddButton_Click"/>
+        <Button x:Name="FridayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="445,264,0,0" VerticalAlignment="Top" Width="75" Click="FridayDeleteButton_Click"/>
+        <Button x:Name="SaturdayAddButton" Content="ADD" HorizontalAlignment="Left" Margin="647,263,0,0" VerticalAlignment="Top" Width="75" Click="SaturdayAddButton_Click"/>
+        <Button x:Name="SaturdayDeleteButton" Content="DELETE" HorizontalAlignment="Left" Margin="763,263,0,0" VerticalAlignment="Top" Width="75" Click="SaturdayDeleteButton_Click"/>
+        <Button x:Name="BackToDashboardButton" Content="BACK TO DASHBOARD" HorizontalAlignment="Left" Margin="735,1,0,0" VerticalAlignment="Top" Width="132" Click="BackToDashboardButton_Click"/>
+
+    </Grid>
+</Controls:MetroWindow>

@@ -129,6 +129,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeSchedules">
+      <EntityTypeMapping TypeName="PlanetVetModel.EmployeeSchedule">
+        <MappingFragment StoreEntitySet="EmployeeSchedule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EmployeeWorkHourLogs">
       <EntityTypeMapping TypeName="PlanetVetModel.EmployeeWorkHourLog">
         <MappingFragment StoreEntitySet="EmployeeWorkHourLogs">

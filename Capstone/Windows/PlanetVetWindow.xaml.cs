@@ -118,5 +118,12 @@ namespace Capstone
             ciow.Show();
             this.Close();
         }
+
+        private void EmployeeSchedulingButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeSchedulingWindow esw = new EmployeeSchedulingWindow();
+            esw.Show();
+            this.Close();
+        }
     }
 }

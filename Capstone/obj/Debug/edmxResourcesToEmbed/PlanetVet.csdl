@@ -119,6 +119,18 @@
     <Property Name="IsWorking" Type="Boolean" Nullable="false" />
     <Property Name="IsOnLunchBreak" Type="Boolean" Nullable="false" />
   </EntityType>
+  <EntityType Name="EmployeeSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="7" />
+    <Property Name="TimeStart" Type="DateTime" Precision="7" />
+    <Property Name="TimeEnd" Type="DateTime" Precision="7" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeFirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeLastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="EmployeeWorkHourLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -304,6 +316,7 @@
     <EntitySet Name="EmployeeChanges" EntityType="Self.EmployeeChanx" />
     <EntitySet Name="EmployeeLunchLogs" EntityType="Self.EmployeeLunchLog" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeeSchedules" EntityType="Self.EmployeeSchedule" />
     <EntitySet Name="EmployeeWorkHourLogs" EntityType="Self.EmployeeWorkHourLog" />
     <EntitySet Name="ExamRooms" EntityType="Self.ExamRoom" />
     <EntitySet Name="InventoryItems" EntityType="Self.InventoryItem" />

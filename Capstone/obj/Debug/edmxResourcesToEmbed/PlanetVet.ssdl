@@ -119,6 +119,18 @@
     <Property Name="IsWorking" Type="bit" Nullable="false" />
     <Property Name="IsOnLunchBreak" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="EmployeeSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" />
+    <Property Name="TimeStart" Type="datetime2" Precision="7" />
+    <Property Name="TimeEnd" Type="datetime2" Precision="7" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="EmployeeFirstName" Type="varchar(max)" />
+    <Property Name="EmployeeLastName" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="EmployeeWorkHourLogs">
     <Key>
       <PropertyRef Name="Id" />
@@ -304,6 +316,7 @@
     <EntitySet Name="EmployeeChanges" EntityType="Self.EmployeeChanges" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeLunchLogs" EntityType="Self.EmployeeLunchLogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeSchedule" EntityType="Self.EmployeeSchedule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeWorkHourLogs" EntityType="Self.EmployeeWorkHourLogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExamRooms" EntityType="Self.ExamRooms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InventoryItems" EntityType="Self.InventoryItems" Schema="dbo" store:Type="Tables" />

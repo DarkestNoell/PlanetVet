@@ -82,3 +82,7 @@ C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\Clo
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeManagementWindow.g.cs
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\ClockInOutWindow.baml
 C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeManagementWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeSchedulingWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeSchedulingWindow.baml
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeSchedulingAdderWindow.g.cs
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Capstone\obj\Debug\Windows\EmployeeSchedulingAdderWindow.baml

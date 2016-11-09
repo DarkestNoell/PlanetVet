@@ -1,0 +1,4 @@
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Authentication Library\bin\Debug\Authentication Library.dll
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Authentication Library\bin\Debug\Authentication Library.pdb
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Authentication Library\obj\Debug\Authentication Library.dll
+C:\Users\Austin Fouty\Documents\Periodic\Capstone\Authentication Library\obj\Debug\Authentication Library.pdb
